@@ -8,105 +8,216 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Somnopilote">
-<meta name="mobile-web-app-capable" content="yes">
 <meta name="theme-color" content="#080c10">
 <link id="appIcon" rel="apple-touch-icon" href="">
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#080c10;--surface:#0d1520;--surface2:#111d2e;--accent:#00c8ff;--accent2:#ff6b35;--danger:#ff2d55;--success:#30d158;--text:#e8f4f8;--dim:#5a7a8a;--border:rgba(0,200,255,0.15);--glow:0 0 20px rgba(0,200,255,0.3)}
-*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-html,body{height:100%;overflow:hidden;position:fixed;width:100%}
-body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;display:flex;flex-direction:column}
-body::before{content:'';position:fixed;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(ellipse at 30% 20%,rgba(0,80,120,.18) 0%,transparent 50%),radial-gradient(ellipse at 70% 80%,rgba(0,40,80,.12) 0%,transparent 50%);pointer-events:none;z-index:0}
-body::after{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(0,200,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,200,255,.03) 1px,transparent 1px);background-size:40px 40px;pointer-events:none;z-index:0}
-.app{position:relative;z-index:1;display:flex;flex-direction:column;height:100%;width:100%}
+:root {
+  --bg: #080c10;
+  --surface: #0d1520;
+  --surface2: #111d2e;
+  --accent: #00c8ff;
+  --accent2: #ff6b35;
+  --danger: #ff2d55;
+  --text: #e8f4f8;
+  --dim: #5a7a8a;
+  --border: rgba(0,200,255,0.15);
+}
+* { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+html, body { height:100%; overflow:hidden; position:fixed; width:100%; }
+body {
+  background:var(--bg); color:var(--text);
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  display:flex; flex-direction:column;
+}
+.mono { font-family: 'Courier New', monospace; }
 
-/* SETUP */
-#setupScreen{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;gap:26px;overflow-y:auto}
-.logo{font-family:‘Orbitron’,monospace;font-size:34px;font-weight:900;letter-spacing:5px;color:var(–accent);text-shadow:0 0 40px rgba(0,200,255,.6),0 0 80px rgba(0,200,255,.2);animation:plogo 3s ease-in-out infinite;text-align:center}
-.logo span{color:var(–accent2)}
-@keyframes plogo{0%,100%{text-shadow:0 0 40px rgba(0,200,255,.6),0 0 80px rgba(0,200,255,.2)}50%{text-shadow:0 0 60px rgba(0,200,255,.9),0 0 100px rgba(0,200,255,.4)}}
-.tagline{font-size:10px;letter-spacing:3px;color:var(–dim);text-transform:uppercase;margin-top:5px;text-align:center}
-.card{background:var(–surface);border:1px solid var(–border);border-radius:16px;padding:22px;width:100%;max-width:420px;display:flex;flex-direction:column;gap:17px}
-.card h2{font-family:‘Orbitron’,monospace;font-size:11px;letter-spacing:3px;color:var(–accent);text-transform:uppercase}
-.fg{display:flex;flex-direction:column;gap:6px}
-.fg label{font-size:10px;color:var(–dim);letter-spacing:1px;text-transform:uppercase}
-.fg input,.fg select{background:var(–bg);border:1px solid var(–border);border-radius:10px;padding:13px 14px;color:var(–text);font-family:‘Inter’,sans-serif;font-size:15px;outline:none;width:100%;transition:border-color .2s;-webkit-appearance:none;appearance:none}
-.fg input:focus,.fg select:focus{border-color:var(–accent);box-shadow:var(–glow)}
-.fg input::placeholder{color:var(–dim)}
-.fg select option{background:#0d1520}
-.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.btn-p{background:linear-gradient(135deg,var(–accent),#0090cc);color:#000;font-family:‘Orbitron’,monospace;font-size:12px;font-weight:700;letter-spacing:3px;border:none;border-radius:12px;padding:17px;width:100%;cursor:pointer;text-transform:uppercase;box-shadow:0 4px 20px rgba(0,200,255,.3);-webkit-user-select:none;user-select:none}
-.btn-p:active{transform:scale(.97);opacity:.9}
-.btn-d{background:linear-gradient(135deg,var(–danger),#cc0030);color:#fff;font-family:‘Orbitron’,monospace;font-size:10px;font-weight:700;letter-spacing:2px;border:none;border-radius:10px;padding:14px;cursor:pointer;text-transform:uppercase;-webkit-user-select:none;user-select:none}
-.btn-s{background:transparent;color:var(–accent);font-family:‘Orbitron’,monospace;font-size:10px;font-weight:700;letter-spacing:2px;border:1px solid var(–border);border-radius:10px;padding:14px;cursor:pointer;text-transform:uppercase;-webkit-user-select:none;user-select:none}
-#micBanner{display:none;background:rgba(255,107,53,.12);border:1px solid rgba(255,107,53,.3);border-radius:10px;padding:11px 13px;font-size:12px;color:var(–accent2);text-align:center;line-height:1.5}
-#micBanner.show{display:block}
+/* background fx */
+body::before {
+content:’’; position:fixed; inset:0; pointer-events:none; z-index:0;
+background:
+radial-gradient(ellipse at 25% 15%, rgba(0,80,130,0.2) 0%, transparent 55%),
+radial-gradient(ellipse at 75% 85%, rgba(0,40,80,0.15) 0%, transparent 55%);
+}
 
-/* DRIVE */
-#driveScreen{flex:1;display:none;flex-direction:column;height:100%;overflow:hidden}
-.sbar{display:flex;align-items:center;justify-content:space-between;padding:13px 17px;border-bottom:1px solid var(–border);background:rgba(13,21,32,.96);backdrop-filter:blur(10px);flex-shrink:0}
-.sname{font-family:‘Orbitron’,monospace;font-size:12px;font-weight:700;color:var(–accent);letter-spacing:2px}
-.sind{display:flex;align-items:center;gap:6px;font-size:10px;color:var(–dim);letter-spacing:1px;text-transform:uppercase}
-.dot{width:7px;height:7px;border-radius:50%;background:var(–success);animation:blink 1.5s ease-in-out infinite}
-.dot.w{background:var(–accent);animation:blink 2s ease-in-out infinite}
-.dot.a{background:var(–danger);animation:blink .5s ease-in-out infinite}
-.dot.sp{background:var(–accent2);animation:blink .8s ease-in-out infinite}
-@keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
-.dmain{flex:1;display:flex;flex-direction:column;padding:13px 15px;gap:11px;overflow:hidden;min-height:0}
+.app { position:relative; z-index:1; display:flex; flex-direction:column; height:100%; width:100%; }
+
+/* ── SETUP ── */
+#setupScreen {
+flex:1; display:flex; flex-direction:column;
+align-items:center; justify-content:center;
+padding:20px; gap:24px; overflow-y:auto;
+}
+
+.logo {
+font-family:‘Courier New’,monospace;
+font-size:30px; font-weight:900; letter-spacing:4px;
+text-align:center;
+}
+.logo .s1 { color:var(–accent); }
+.logo .s2 { color:var(–accent2); }
+.tagline { font-size:10px; letter-spacing:3px; color:var(–dim); text-transform:uppercase; text-align:center; margin-top:4px; }
+
+.card {
+background:var(–surface); border:1px solid var(–border);
+border-radius:16px; padding:20px; width:100%; max-width:420px;
+display:flex; flex-direction:column; gap:16px;
+}
+.card-title { font-size:10px; letter-spacing:3px; color:var(–accent); text-transform:uppercase; }
+
+.fg { display:flex; flex-direction:column; gap:6px; }
+.fg label { font-size:10px; color:var(–dim); letter-spacing:1px; text-transform:uppercase; }
+.fg input, .fg select {
+background:var(–bg); border:1px solid var(–border);
+border-radius:10px; padding:14px;
+color:var(–text); font-size:16px; outline:none; width:100%;
+-webkit-appearance:none; appearance:none;
+font-family:-apple-system,‘Helvetica Neue’,sans-serif;
+}
+.fg input:focus, .fg select:focus { border-color:var(–accent); }
+.fg input::placeholder { color:var(–dim); }
+.row2 { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+
+.btn-start {
+background:var(–accent); color:#000;
+font-size:14px; font-weight:700; letter-spacing:2px;
+border:none; border-radius:12px; padding:18px;
+width:100%; cursor:pointer; text-transform:uppercase;
+}
+.btn-start:active { opacity:0.8; }
+
+#micWarn {
+display:none; background:rgba(255,107,53,0.12);
+border:1px solid rgba(255,107,53,0.3); border-radius:10px;
+padding:12px; font-size:12px; color:var(–accent2);
+text-align:center; line-height:1.6;
+}
+#micWarn.show { display:block; }
+
+/* ── DRIVE ── */
+#driveScreen { flex:1; display:none; flex-direction:column; height:100%; overflow:hidden; }
+
+.sbar {
+display:flex; align-items:center; justify-content:space-between;
+padding:14px 18px; border-bottom:1px solid var(–border);
+background:rgba(8,12,16,0.97); flex-shrink:0;
+}
+.sname { font-family:‘Courier New’,monospace; font-size:13px; font-weight:700; color:var(–accent); letter-spacing:2px; }
+.sind { display:flex; align-items:center; gap:6px; font-size:10px; color:var(–dim); letter-spacing:1px; text-transform:uppercase; }
+.dot { width:7px; height:7px; border-radius:50%; }
+.dot-w  { background:var(–accent); animation:blink 2s infinite; }
+.dot-a  { background:var(–danger); animation:blink 0.4s infinite; }
+.dot-sp { background:var(–accent2); animation:blink 0.8s infinite; }
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.2} }
+
+.dmain { flex:1; display:flex; flex-direction:column; padding:14px; gap:12px; overflow:hidden; min-height:0; }
 
 /* Timer */
-.tring-wrap{display:flex;justify-content:center;flex-shrink:0}
-.tring-box{position:relative;width:108px;height:108px}
-.tring-svg{width:108px;height:108px;transform:rotate(-90deg)}
-.tr-bg{fill:none;stroke:rgba(0,200,255,.1);stroke-width:4}
-.tr-fill{fill:none;stroke:var(–accent);stroke-width:4;stroke-linecap:round;stroke-dasharray:283;stroke-dashoffset:0;transition:stroke-dashoffset 1s linear,stroke .3s;filter:drop-shadow(0 0 5px rgba(0,200,255,.8))}
-.tr-fill.urgent{stroke:var(–danger);filter:drop-shadow(0 0 5px rgba(255,45,85,.8))}
-.tring-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
-.tnum{font-family:‘Orbitron’,monospace;font-size:23px;font-weight:700;color:var(–accent);line-height:1}
-.tlbl{font-size:8px;color:var(–dim);letter-spacing:2px;text-transform:uppercase;margin-top:3px}
+.tring-wrap { display:flex; justify-content:center; flex-shrink:0; }
+.tring-box { position:relative; width:110px; height:110px; }
+.tring-svg { width:110px; height:110px; transform:rotate(-90deg); }
+.tr-bg   { fill:none; stroke:rgba(0,200,255,0.1); stroke-width:5; }
+.tr-fill {
+fill:none; stroke:var(–accent); stroke-width:5;
+stroke-linecap:round; stroke-dasharray:283; stroke-dashoffset:0;
+transition:stroke-dashoffset 1s linear;
+filter:drop-shadow(0 0 4px rgba(0,200,255,0.8));
+}
+.tr-fill.urgent { stroke:var(–danger); filter:drop-shadow(0 0 4px rgba(255,45,85,0.8)); }
+.tring-center { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; }
+.tnum { font-family:‘Courier New’,monospace; font-size:24px; font-weight:700; color:var(–accent); }
+.tlbl { font-size:8px; color:var(–dim); letter-spacing:2px; text-transform:uppercase; margin-top:2px; }
 
-/* Convo */
-.csec{flex:1;min-height:0;background:var(–surface);border:1px solid var(–border);border-radius:13px;padding:11px;display:flex;flex-direction:column;gap:7px;overflow:hidden}
-.clbl{font-size:9px;color:var(–dim);letter-spacing:2px;text-transform:uppercase;flex-shrink:0}
-.cscroll{flex:1;overflow-y:auto;display:flex;flex-direction:column;gap:7px;scrollbar-width:none;min-height:0}
-.cscroll::-webkit-scrollbar{display:none}
-.bubble{max-width:90%;padding:9px 12px;border-radius:12px;font-size:14px;line-height:1.45;animation:fup .3s ease}
-@keyframes fup{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
-.bubble.sp{background:var(–surface2);border:1px solid var(–border);border-bottom-left-radius:3px;align-self:flex-start}
-.bubble.sp .bn{font-size:9px;color:var(–accent);letter-spacing:1px;text-transform:uppercase;margin-bottom:3px;font-family:‘Orbitron’,monospace}
-.bubble.us{background:linear-gradient(135deg,rgba(0,200,255,.1),rgba(0,100,150,.07));border:1px solid rgba(0,200,255,.18);border-bottom-right-radius:3px;align-self:flex-end}
-.spbar{display:none;align-items:center;gap:7px;padding:6px 10px;background:rgba(255,107,53,.08);border:1px solid rgba(255,107,53,.18);border-radius:20px;font-size:11px;color:var(–accent2);flex-shrink:0}
-.spbar.active{display:flex}
-.wf{display:flex;align-items:center;gap:2px;height:16px}
-.wb{width:3px;border-radius:2px;background:var(–accent2);animation:wav .7s ease-in-out infinite}
-.wb:nth-child(1){animation-delay:0s;height:5px}.wb:nth-child(2){animation-delay:.1s;height:10px}.wb:nth-child(3){animation-delay:.2s;height:16px}.wb:nth-child(4){animation-delay:.3s;height:10px}.wb:nth-child(5){animation-delay:.4s;height:5px}
-@keyframes wav{0%,100%{transform:scaleY(.3)}50%{transform:scaleY(1)}}
+/* Conversation */
+.csec {
+flex:1; min-height:0; background:var(–surface);
+border:1px solid var(–border); border-radius:14px;
+padding:12px; display:flex; flex-direction:column; gap:8px; overflow:hidden;
+}
+.clbl { font-size:9px; color:var(–dim); letter-spacing:2px; text-transform:uppercase; flex-shrink:0; }
+.cscroll { flex:1; overflow-y:auto; display:flex; flex-direction:column; gap:8px; min-height:0; }
+.cscroll::-webkit-scrollbar { display:none; }
 
-/* Mic */
-.lsec{display:flex;flex-direction:column;align-items:center;gap:7px;flex-shrink:0}
-.lbtn{width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,rgba(0,200,255,.13),rgba(0,100,150,.08));border:2px solid var(–accent);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s;box-shadow:0 0 16px rgba(0,200,255,.18);font-size:25px;-webkit-user-select:none;user-select:none}
-.lbtn.active{background:linear-gradient(135deg,rgba(0,200,255,.32),rgba(0,100,150,.22));box-shadow:0 0 26px rgba(0,200,255,.5);animation:pring 1s ease-in-out infinite}
-.lbtn.proc{border-color:var(–accent2);box-shadow:0 0 16px rgba(255,107,53,.4)}
-@keyframes pring{0%,100%{box-shadow:0 0 26px rgba(0,200,255,.5),0 0 0 0 rgba(0,200,255,.22)}50%{box-shadow:0 0 26px rgba(0,200,255,.5),0 0 0 13px rgba(0,200,255,0)}}
-.lstatus{font-size:10px;color:var(–dim);letter-spacing:1px;text-transform:uppercase;text-align:center}
+.bbl { max-width:90%; padding:10px 13px; border-radius:12px; font-size:14px; line-height:1.5; }
+.bbl-sp {
+background:var(–surface2); border:1px solid var(–border);
+border-bottom-left-radius:3px; align-self:flex-start;
+}
+.bbl-sp .bn { font-size:9px; color:var(–accent); letter-spacing:1px; text-transform:uppercase; margin-bottom:3px; font-family:‘Courier New’,monospace; }
+.bbl-us {
+background:rgba(0,200,255,0.08); border:1px solid rgba(0,200,255,0.15);
+border-bottom-right-radius:3px; align-self:flex-end;
+}
+.bbl-us .bn { font-size:9px; color:var(–accent); letter-spacing:1px; text-transform:uppercase; margin-bottom:3px; font-family:‘Courier New’,monospace; }
 
-.bctrl{padding:8px 15px 18px;display:grid;grid-template-columns:1fr 1fr;gap:10px;flex-shrink:0}
+.spbar {
+display:none; align-items:center; gap:8px; padding:6px 10px;
+background:rgba(255,107,53,0.08); border:1px solid rgba(255,107,53,0.15);
+border-radius:20px; font-size:11px; color:var(–accent2); flex-shrink:0;
+}
+.spbar.on { display:flex; }
+.wf { display:flex; align-items:center; gap:2px; height:16px; }
+.wb { width:3px; border-radius:2px; background:var(–accent2); animation:wav 0.7s ease-in-out infinite; }
+.wb:nth-child(1){height:5px;animation-delay:0s}
+.wb:nth-child(2){height:10px;animation-delay:.1s}
+.wb:nth-child(3){height:16px;animation-delay:.2s}
+.wb:nth-child(4){height:10px;animation-delay:.3s}
+.wb:nth-child(5){height:5px;animation-delay:.4s}
+@keyframes wav { 0%,100%{transform:scaleY(0.3)} 50%{transform:scaleY(1)} }
+
+/* Mic button */
+.lsec { display:flex; flex-direction:column; align-items:center; gap:8px; flex-shrink:0; }
+.lbtn {
+width:64px; height:64px; border-radius:50%;
+background:rgba(0,200,255,0.08); border:2px solid var(–accent);
+display:flex; align-items:center; justify-content:center;
+font-size:28px; cursor:pointer;
+}
+.lbtn.on { background:rgba(0,200,255,0.25); box-shadow:0 0 0 8px rgba(0,200,255,0.15); }
+.lbtn.proc { border-color:var(–accent2); }
+.lbtn:active { opacity:0.7; }
+.lstatus { font-size:10px; color:var(–dim); letter-spacing:1px; text-transform:uppercase; }
+
+/* Bottom */
+.bctrl { padding:8px 14px 20px; display:grid; grid-template-columns:1fr 1fr; gap:10px; flex-shrink:0; }
+.btn-now {
+background:transparent; color:var(–accent);
+font-size:11px; font-weight:700; letter-spacing:1px;
+border:1px solid var(–border); border-radius:10px; padding:14px;
+cursor:pointer; text-transform:uppercase;
+}
+.btn-stop {
+background:var(–danger); color:#fff;
+font-size:11px; font-weight:700; letter-spacing:1px;
+border:none; border-radius:10px; padding:14px;
+cursor:pointer; text-transform:uppercase;
+}
+.btn-now:active, .btn-stop:active { opacity:0.7; }
 
 /* Thinking */
-.thinking{display:flex;gap:4px;align-items:center;padding:9px 12px;align-self:flex-start}
-.td{width:5px;height:5px;border-radius:50%;background:var(–dim);animation:th 1.1s ease-in-out infinite}
-.td:nth-child(2){animation-delay:.18s}.td:nth-child(3){animation-delay:.36s}
-@keyframes th{0%,100%{opacity:.2;transform:scale(.8)}50%{opacity:1;transform:scale(1.3)}}
+.thinking { display:flex; gap:5px; align-items:center; padding:10px 13px; align-self:flex-start; }
+.td { width:6px; height:6px; border-radius:50%; background:var(–dim); animation:th 1.1s ease-in-out infinite; }
+.td:nth-child(2){animation-delay:.2s} .td:nth-child(3){animation-delay:.4s}
+@keyframes th { 0%,100%{opacity:0.2;transform:scale(0.8)} 50%{opacity:1;transform:scale(1.3)} }
 
 /* Alert */
-#alert{display:none;position:fixed;inset:0;background:rgba(255,45,85,.1);z-index:200;align-items:center;justify-content:center;animation:abg .6s ease-in-out infinite}
-#alert.active{display:flex}
-@keyframes abg{0%,100%{background:rgba(255,45,85,.1)}50%{background:rgba(255,45,85,.25)}}
-.abox{background:var(–surface);border:2px solid var(–danger);border-radius:18px;padding:28px 20px;text-align:center;max-width:280px;box-shadow:0 0 50px rgba(255,45,85,.35)}
-.aemoji{font-size:42px;margin-bottom:9px}
-.atitle{font-family:‘Orbitron’,monospace;font-size:15px;color:var(–danger);letter-spacing:2px;margin-bottom:7px}
-.atext{font-size:13px;color:var(–dim);margin-bottom:16px;line-height:1.5}
+#alertBox {
+display:none; position:fixed; inset:0; z-index:200;
+background:rgba(255,45,85,0.1); align-items:center; justify-content:center;
+}
+#alertBox.on { display:flex; }
+.ainner {
+background:var(–surface); border:2px solid var(–danger);
+border-radius:18px; padding:28px 22px; text-align:center; max-width:280px;
+}
+.aemoji { font-size:44px; margin-bottom:8px; }
+.atitle { font-family:‘Courier New’,monospace; font-size:16px; color:var(–danger); letter-spacing:2px; margin-bottom:6px; }
+.atext { font-size:13px; color:var(–dim); margin-bottom:16px; line-height:1.5; }
+.btn-awake {
+background:var(–accent); color:#000;
+font-size:12px; font-weight:700; letter-spacing:1px;
+border:none; border-radius:10px; padding:14px 20px;
+cursor:pointer; text-transform:uppercase; width:100%;
+}
 </style>
 
 </head>
@@ -117,31 +228,57 @@ body::after{content:'';position:fixed;inset:0;background-image:linear-gradient(r
 
 <div id="setupScreen">
   <div>
-    <div class="logo">SOMNO<span>PILOTE</span></div>
+    <div class="logo"><span class="s1">SOMNO</span><span class="s2">PILOTE</span></div>
     <div class="tagline">Ton copilote anti-somnolence</div>
   </div>
+
   <div class="card">
-    <h2>Configuration</h2>
-    <div class="fg"><label>Ton prénom</label><input type="text" id="uname" placeholder="Ex: Sophie" maxlength="20" autocomplete="off"></div>
-    <div class="fg"><label>Clé API Groq</label><input type="password" id="akey" placeholder="gsk_..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></div>
-    <div class="fg">
-      <label>Intervalle d'interpellation</label>
-      <div class="row2">
-        <select id="imin"><option value="5">5 min</option><option value="7" selected>7 min</option><option value="10">10 min</option><option value="12">12 min</option></select>
-        <select id="ivar"><option value="0">Fixe</option><option value="2" selected>± 2 min</option><option value="3">± 3 min</option></select>
-      </div>
-    </div>
-    <div class="fg"><label>Style de conversation</label>
-      <select id="style">
-        <option value="varied">Varié — tout type (recommandé)</option>
-        <option value="quiz">Quiz &amp; devinettes</option>
-        <option value="philo">Philosophie &amp; débats</option>
-        <option value="culture">Culture générale</option>
-        <option value="science">Science &amp; technologie</option>
-      </select>
-    </div>
-    <div id="micBanner">⚠️ Micro non autorisé. Va dans Réglages → Safari → Micro et autorise l'accès, puis reviens ici.</div>
-    <button class="btn-p" onclick="startDriving()">🚗 &nbsp;DÉMARRER</button>
+    <div class="card-title">Configuration</div>
+
+```
+<div class="fg">
+  <label>Ton prénom</label>
+  <input type="text" id="uname" placeholder="Ex: Sophie" maxlength="20" autocomplete="off" autocorrect="off" autocapitalize="words">
+</div>
+
+<div class="fg">
+  <label>Clé API Groq</label>
+  <input type="password" id="akey" placeholder="gsk_..." autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false">
+</div>
+
+<div class="fg">
+  <label>Intervalle</label>
+  <div class="row2">
+    <select id="imin">
+      <option value="5">5 min</option>
+      <option value="7" selected>7 min</option>
+      <option value="10">10 min</option>
+      <option value="12">12 min</option>
+    </select>
+    <select id="ivar">
+      <option value="0">Fixe</option>
+      <option value="2" selected>± 2 min</option>
+      <option value="3">± 3 min</option>
+    </select>
+  </div>
+</div>
+
+<div class="fg">
+  <label>Style</label>
+  <select id="style">
+    <option value="varied">Varié — tout type</option>
+    <option value="quiz">Quiz et devinettes</option>
+    <option value="philo">Philosophie et débats</option>
+    <option value="culture">Culture générale</option>
+    <option value="science">Science et technologie</option>
+  </select>
+</div>
+
+<div id="micWarn">⚠️ Micro non autorisé.<br>Réglages → Safari → Micro → Autoriser</div>
+
+<button class="btn-start" id="btnStart">🚗 DÉMARRER</button>
+```
+
   </div>
 </div>
 
@@ -150,8 +287,12 @@ body::after{content:'';position:fixed;inset:0;background-image:linear-gradient(r
 <div id="driveScreen">
   <div class="sbar">
     <div class="sname" id="sname">SOMNOPILOTE</div>
-    <div class="sind"><div class="dot w" id="sdot"></div><span id="stxt">EN ROUTE</span></div>
+    <div class="sind">
+      <div class="dot dot-w" id="sdot"></div>
+      <span id="stxt">EN ROUTE</span>
+    </div>
   </div>
+
   <div class="dmain">
     <div class="tring-wrap">
       <div class="tring-box">
@@ -165,268 +306,398 @@ body::after{content:'';position:fixed;inset:0;background-image:linear-gradient(r
         </div>
       </div>
     </div>
-    <div class="csec">
-      <div class="clbl">Conversation</div>
-      <div class="cscroll" id="cscroll"></div>
-      <div class="spbar" id="spbar">
-        <div class="wf"><div class="wb"></div><div class="wb"></div><div class="wb"></div><div class="wb"></div><div class="wb"></div></div>
-        <span>Somnopilote parle…</span>
-      </div>
+
+```
+<div class="csec">
+  <div class="clbl">Conversation</div>
+  <div class="cscroll" id="cscroll"></div>
+  <div class="spbar" id="spbar">
+    <div class="wf">
+      <div class="wb"></div><div class="wb"></div><div class="wb"></div>
+      <div class="wb"></div><div class="wb"></div>
     </div>
-    <div class="lsec">
-      <div class="lbtn" id="lbtn" onclick="toggleListen()">🎙️</div>
-      <div class="lstatus" id="lstatus">Appuyer pour répondre</div>
-    </div>
+    <span>Somnopilote parle…</span>
   </div>
+</div>
+
+<div class="lsec">
+  <div class="lbtn" id="lbtn">🎙️</div>
+  <div class="lstatus" id="lstatus">Appuyer pour répondre</div>
+</div>
+```
+
+  </div>
+
   <div class="bctrl">
-    <button class="btn-s" onclick="askNow()">⚡ Interpelle-moi</button>
-    <button class="btn-d" onclick="stopDriving()">■ Arrêter</button>
+    <button class="btn-now" id="btnNow">⚡ Interpelle-moi</button>
+    <button class="btn-stop" id="btnStop">■ Arrêter</button>
   </div>
 </div>
 
 <!-- ALERT -->
 
-<div id="alert">
-  <div class="abox">
+<div id="alertBox">
+  <div class="ainner">
     <div class="aemoji">⚠️</div>
     <div class="atitle">RÉVEIL !</div>
     <div class="atext">Tu n'as pas répondu.<br>Réponds à voix haute ou touche l'écran.</div>
-    <button class="btn-p" onclick="dismissAlert()" style="font-size:11px;padding:13px">JE SUIS RÉVEILLÉ(E)</button>
+    <button class="btn-awake" id="btnAwake">JE SUIS RÉVEILLÉ(E)</button>
   </div>
 </div>
 
-</div>
 <script>
-// Génère icône PWA dynamiquement
+// ── Icône PWA ──
 (function(){
-  try{
-    const c=document.createElement('canvas');c.width=c.height=180;
-    const x=c.getContext('2d');
-    x.fillStyle='#080c10';x.fillRect(0,0,180,180);
-    x.strokeStyle='#00c8ff';x.lineWidth=7;
-    x.beginPath();x.arc(90,90,72,0,Math.PI*2);x.stroke();
-    x.strokeStyle='#ff6b35';x.lineWidth=4;
-    x.beginPath();x.arc(90,90,56,-Math.PI/2,Math.PI,false);x.stroke();
-    x.fillStyle='#00c8ff';x.font='bold 68px Arial';x.textAlign='center';x.textBaseline='middle';
-    x.fillText('S',90,90);
-    document.getElementById('appIcon').href=c.toDataURL('image/png');
-  }catch(e){}
+  try {
+    var c = document.createElement('canvas');
+    c.width = c.height = 180;
+    var x = c.getContext('2d');
+    x.fillStyle = '#080c10'; x.fillRect(0,0,180,180);
+    x.strokeStyle = '#00c8ff'; x.lineWidth = 8;
+    x.beginPath(); x.arc(90,90,74,0,Math.PI*2); x.stroke();
+    x.strokeStyle = '#ff6b35'; x.lineWidth = 4;
+    x.beginPath(); x.arc(90,90,56,-Math.PI/2,Math.PI,false); x.stroke();
+    x.fillStyle = '#00c8ff';
+    x.font = 'bold 70px Courier New';
+    x.textAlign = 'center'; x.textBaseline = 'middle';
+    x.fillText('S', 90, 90);
+    document.getElementById('appIcon').href = c.toDataURL('image/png');
+  } catch(e) {}
 })();
 
-const S={
-apiKey:’’,userName:‘toi’,style:‘varied’,
-iMs:7*60000,vMs:2*60000,
-nextAt:null,totSecs:0,
-mt:null,ct:null,nrt:null,
-listening:false,speaking:false,processing:false,
-rec:null,synth:window.speechSynthesis,
-hist:[],topics:[],micOk:false
+// ── State ──
+var S = {
+  apiKey:'', userName:'toi', style:'varied',
+  iMs: 7*60000, vMs: 2*60000,
+  nextAt:0, totSecs:0,
+  mt:null, ct:null, nrt:null,
+  listening:false, speaking:false, processing:false,
+  rec:null, synth:window.speechSynthesis,
+  hist:[], topics:[], micOk:false
 };
 
-function startDriving(){
-const name=document.getElementById(‘uname’).value.trim();
-const key=document.getElementById(‘akey’).value.trim();
-if(!name){alert(‘Entre ton prénom !’);return;}
-if(!key.startsWith(‘gsk_’)){alert(‘Clé Groq invalide (commence par gsk_)’);return;}
-S.apiKey=key; S.userName=name;
-S.iMs=parseInt(document.getElementById(‘imin’).value)*60000;
-S.vMs=parseInt(document.getElementById(‘ivar’).value)*60000;
-S.style=document.getElementById(‘style’).value;
-document.getElementById(‘sname’).textContent=’SOMNOPILOTE · ’+name.toUpperCase();
-document.getElementById(‘setupScreen’).style.display=‘none’;
-document.getElementById(‘driveScreen’).style.display=‘flex’;
-wakeLock(); initMic();
-}
-
-function stopDriving(){
-if(!confirm(‘Arrêter Somnopilote ?’))return;
-clearAll(); S.synth.cancel();
-if(S.rec)try{S.rec.stop();}catch(e){}
-document.getElementById(‘driveScreen’).style.display=‘none’;
-document.getElementById(‘setupScreen’).style.display=‘flex’;
-document.getElementById(‘cscroll’).innerHTML=’’;
-S.hist=[];S.topics=[];
-}
-
-async function wakeLock(){
-try{if(‘wakeLock’in navigator)await navigator.wakeLock.request(‘screen’);}catch(e){}
-}
-
-function initMic(){
-navigator.mediaDevices.getUserMedia({audio:true})
-.then(stream=>{
-stream.getTracks().forEach(t=>t.stop());
-S.micOk=true; setupRec(); greet();
-})
-.catch(err=>{
-console.warn(‘Mic:’,err);
-document.getElementById(‘micBanner’).classList.add(‘show’);
-greet();
+// ── Bind buttons (évite les problèmes onclick sur iOS) ──
+window.addEventListener('DOMContentLoaded', function() {
+  document.getElementById('btnStart').addEventListener('click', startDriving);
+  document.getElementById('btnNow').addEventListener('click', askNow);
+  document.getElementById('btnStop').addEventListener('click', stopDriving);
+  document.getElementById('lbtn').addEventListener('click', toggleListen);
+  document.getElementById('btnAwake').addEventListener('click', dismissAlert);
 });
+
+function startDriving() {
+  var name = document.getElementById('uname').value.trim();
+  var key  = document.getElementById('akey').value.trim();
+  if (!name) { alert('Entre ton prénom !'); return; }
+  if (!key.startsWith('gsk_')) { alert('Clé Groq invalide — elle commence par gsk_'); return; }
+
+  S.apiKey   = key;
+  S.userName = name;
+  S.iMs  = parseInt(document.getElementById('imin').value) * 60000;
+  S.vMs  = parseInt(document.getElementById('ivar').value) * 60000;
+  S.style= document.getElementById('style').value;
+
+  document.getElementById('sname').textContent = 'SOMNOPILOTE · ' + name.toUpperCase();
+  document.getElementById('setupScreen').style.display = 'none';
+  document.getElementById('driveScreen').style.display = 'flex';
+
+  wakeLock();
+  initMic();
 }
 
-function setupRec(){
-const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
-if(!SR){addMsg(‘sp’,‘⚠️ Reconnaissance vocale non disponible. Utilise Safari sur iPhone.’);return;}
-S.rec=new SR();
-S.rec.lang=‘fr-FR’;S.rec.continuous=false;S.rec.interimResults=false;S.rec.maxAlternatives=1;
-S.rec.onresult=e=>{const t=e.results[0][0].transcript;stopListen();handleSpeech(t);};
-S.rec.onerror=e=>{stopListen();if(e.error===‘not-allowed’)addMsg(‘sp’,‘Accès micro refusé. Autorise dans Réglages → Safari → Micro.’);};
-S.rec.onend=()=>{if(S.listening)stopListen();};
+function stopDriving() {
+  if (!confirm('Arrêter Somnopilote ?')) return;
+  clearAll();
+  S.synth.cancel();
+  if (S.rec) { try { S.rec.stop(); } catch(e){} }
+  document.getElementById('driveScreen').style.display = 'none';
+  document.getElementById('setupScreen').style.display = 'flex';
+  document.getElementById('cscroll').innerHTML = '';
+  S.hist = []; S.topics = [];
 }
 
-function toggleListen(){
-if(S.speaking||S.processing)return;
-S.listening?stopListen():startListen();
+function wakeLock() {
+  if ('wakeLock' in navigator) {
+    navigator.wakeLock.request('screen').catch(function(){});
+  }
 }
 
-function startListen(){
-if(!S.rec){addMsg(‘sp’,‘Micro non disponible. Utilise Safari sur iPhone.’);return;}
-S.listening=true; clearNRT();
-document.getElementById(‘lbtn’).classList.add(‘active’);
-document.getElementById(‘lstatus’).textContent=‘Je t'écoute…’;
-setStatus(‘w’,‘ÉCOUTE’);
-try{S.rec.start();}catch(e){console.warn(e);}
+function initMic() {
+  navigator.mediaDevices.getUserMedia({ audio: true })
+    .then(function(stream) {
+      stream.getTracks().forEach(function(t){ t.stop(); });
+      S.micOk = true;
+      setupRec();
+      greet();
+    })
+    .catch(function(err) {
+      console.warn('Mic denied:', err);
+      document.getElementById('micWarn').classList.add('show');
+      greet();
+    });
 }
 
-function stopListen(){
-S.listening=false;
-document.getElementById(‘lbtn’).classList.remove(‘active’);
-document.getElementById(‘lstatus’).textContent=‘Appuyer pour répondre’;
-try{S.rec.stop();}catch(e){}
+function setupRec() {
+  var SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if (!SR) {
+    addMsg('sp', '⚠️ Reconnaissance vocale non dispo. Utilise Safari sur iPhone.');
+    return;
+  }
+  S.rec = new SR();
+  S.rec.lang = 'fr-FR';
+  S.rec.continuous = false;
+  S.rec.interimResults = false;
+
+  S.rec.onresult = function(e) {
+    var t = e.results[0][0].transcript;
+    stopListen();
+    handleSpeech(t);
+  };
+  S.rec.onerror = function(e) {
+    stopListen();
+    if (e.error === 'not-allowed') {
+      addMsg('sp', 'Micro refusé. Va dans Réglages → Safari → Micro et autorise.');
+    }
+  };
+  S.rec.onend = function() {
+    if (S.listening) stopListen();
+  };
 }
 
-function speak(text,cb){
-S.synth.cancel();
-const u=new SpeechSynthesisUtterance(text);
-u.lang=‘fr-FR’;u.rate=0.93;u.pitch=1.05;u.volume=1;
-const pickVoice=()=>{
-const vs=S.synth.getVoices();
-const fr=vs.find(v=>v.lang===‘fr-FR’&&v.name.toLowerCase().includes(‘amélie’))
-||vs.find(v=>v.lang===‘fr-FR’&&v.localService)
-||vs.find(v=>v.lang.startsWith(‘fr’));
-if(fr)u.voice=fr;
-};
-pickVoice();
-if(!u.voice&&S.synth.onvoiceschanged!==undefined)S.synth.onvoiceschanged=pickVoice;
-S.speaking=true;
-document.getElementById(‘spbar’).classList.add(‘active’);
-setStatus(‘sp’,‘PARLE’);
-u.onend=u.onerror=()=>{
-S.speaking=false;
-document.getElementById(‘spbar’).classList.remove(‘active’);
-setStatus(‘w’,‘EN ROUTE’);
-if(cb)cb();
-};
-S.synth.speak(u);
-// Workaround Safari bug : synthèse qui se met en pause
-const fix=setInterval(()=>{if(!S.speaking){clearInterval(fix);return;}if(S.synth.paused)S.synth.resume();},2000);
+function toggleListen() {
+  if (S.speaking || S.processing) return;
+  if (S.listening) stopListen(); else startListen();
 }
 
-function schedule(){
-clearAll();
-const j=(Math.random()*2-1)*S.vMs;
-const d=Math.max(60000,S.iMs+j);
-S.totSecs=Math.floor(d/1000);
-S.nextAt=Date.now()+d;
-S.mt=setTimeout(interpellate,d);
-startCD();
+function startListen() {
+  if (!S.rec) { setupRec(); if (!S.rec) return; }
+  S.listening = true;
+  clearNRT();
+  document.getElementById('lbtn').classList.add('on');
+  document.getElementById('lstatus').textContent = 'Je t\'écoute…';
+  setStatus('w', 'ÉCOUTE');
+  try { S.rec.start(); } catch(e) { console.warn(e); }
 }
 
-function startCD(){
-if(S.ct)clearInterval(S.ct);
-const C=2*Math.PI*45;
-const ring=document.getElementById(‘tring’);
-ring.style.strokeDasharray=C;
-const tick=()=>{
-const rem=Math.max(0,Math.floor((S.nextAt-Date.now())/1000));
-const m=Math.floor(rem/60),s=rem%60;
-document.getElementById(‘tnum’).textContent=m>0?`${m}:${s.toString().padStart(2,'0')}`:`${rem}s`;
-ring.style.strokeDashoffset=C*(1-rem/S.totSecs);
-rem<=30?ring.classList.add(‘urgent’):ring.classList.remove(‘urgent’);
-};
-tick(); S.ct=setInterval(tick,1000);
+function stopListen() {
+  S.listening = false;
+  document.getElementById('lbtn').classList.remove('on');
+  document.getElementById('lstatus').textContent = 'Appuyer pour répondre';
+  try { S.rec.stop(); } catch(e) {}
 }
 
-function clearAll(){clearTimeout(S.mt);clearInterval(S.ct);clearNRT();}
+function speak(text, cb) {
+  S.synth.cancel();
+  var u = new SpeechSynthesisUtterance(text);
+  u.lang = 'fr-FR'; u.rate = 0.92; u.pitch = 1.0; u.volume = 1.0;
 
-function startNRT(){S.nrt=setTimeout(()=>{document.getElementById(‘alert’).classList.add(‘active’);speak(`${S.userName} ! ${S.userName} ! Tu m'entends ? Réponds-moi !`);},28000);}
-function clearNRT(){clearTimeout(S.nrt);dismissAlert();}
-function dismissAlert(){document.getElementById(‘alert’).classList.remove(‘active’);}
+  var voices = S.synth.getVoices();
+  var fr = null;
+  for (var i=0; i<voices.length; i++) {
+    if (voices[i].lang === 'fr-FR') { fr = voices[i]; break; }
+  }
+  if (fr) u.voice = fr;
 
-async function greet(){
-const t=await api(`Tu t'appelles Somnopilote. Tu es le copilote anti-somnolence de ${S.userName} qui souffre d'hypersomnie au volant. Génère un message de bienvenue chaleureux en 2-3 phrases, en français, en la tutoyant. Dis-lui que tu vas l'interpeller régulièrement.`,[]);
-addMsg(‘sp’,t); speak(t,()=>schedule());
+  S.speaking = true;
+  document.getElementById('spbar').classList.add('on');
+  setStatus('sp', 'PARLE');
+
+  u.onend = function() { onSpeakEnd(cb); };
+  u.onerror = function() { onSpeakEnd(cb); };
+  S.synth.speak(u);
+
+  // Fix bug Safari : synthèse qui se met en pause
+  var fix = setInterval(function() {
+    if (!S.speaking) { clearInterval(fix); return; }
+    if (S.synth.paused) S.synth.resume();
+  }, 1500);
 }
 
-async function interpellate(){
-setStatus(‘a’,‘INTERPELLATION’);
-const done=S.topics.slice(-25).join(’, ‘);
-const t=await api(`Interpelle ${S.userName} pour la maintenir éveillée. SUJETS DÉJÀ TRAITÉS (ne pas répéter): ${done||'aucun'}. Lance une interpellation originale: fait insolite, question philo, débat, devinette, quiz, anecdote. Style: ${styleLabel()}. Commence par son prénom. Pose UNE question précise. 2-3 phrases max.`,S.hist);
-S.topics.push(t.split(’ ’).filter(w=>w.length>5)[0]||t.substring(0,30));
-addMsg(‘sp’,t);
-speak(t,()=>{startNRT();setTimeout(startListen,600);});
-schedule();
+function onSpeakEnd(cb) {
+  S.speaking = false;
+  document.getElementById('spbar').classList.remove('on');
+  setStatus('w', 'EN ROUTE');
+  if (cb) cb();
 }
 
-function askNow(){clearAll();interpellate();}
-
-async function handleSpeech(transcript){
-clearNRT(); addMsg(‘us’,transcript);
-setStatus(‘w’,‘TRAITEMENT’); S.processing=true;
-document.getElementById(‘lbtn’).classList.add(‘proc’);
-document.getElementById(‘lstatus’).textContent=‘Réflexion…’;
-const th=addThinking();
-S.hist.push({role:‘user’,content:transcript});
-const r=await api(`${S.userName} vient de répondre: "${transcript}". Réponds naturellement en 2-3 phrases. Rebondis sur sa réponse ou conclus en disant que tu reviendras bientôt.`,S.hist);
-th.remove();
-S.hist.push({role:‘assistant’,content:r});
-if(S.hist.length>20)S.hist=S.hist.slice(-16);
-S.processing=false;
-document.getElementById(‘lbtn’).classList.remove(‘proc’);
-document.getElementById(‘lstatus’).textContent=‘Appuyer pour répondre’;
-addMsg(‘sp’,r); speak(r,()=>setStatus(‘w’,‘EN ROUTE’));
+function schedule() {
+  clearAll();
+  var jitter = (Math.random()*2 - 1) * S.vMs;
+  var delay  = Math.max(60000, S.iMs + jitter);
+  S.totSecs  = Math.floor(delay / 1000);
+  S.nextAt   = Date.now() + delay;
+  S.mt = setTimeout(interpellate, delay);
+  startCD();
 }
 
-async function api(userMsg,hist){
-const sys=`Tu es Somnopilote, copilote bienveillant de ${S.userName} qui souffre d'hypersomnie au volant. Tu parles en français, tu la tutoies, tu es chaleureux et stimulant. Réponses courtes (2-3 phrases) car elle conduit. Tu varies constamment les sujets sans jamais répéter.`;
-try{
-const res=await fetch(‘https://api.groq.com/openai/v1/chat/completions’,{
-method:‘POST’,
-headers:{‘Authorization’:`Bearer ${S.apiKey}`,‘Content-Type’:‘application/json’},
-body:JSON.stringify({model:‘llama-3.3-70b-versatile’,max_tokens:180,temperature:0.92,
-messages:[{role:‘system’,content:sys},…hist,{role:‘user’,content:userMsg}]})
-});
-if(!res.ok){console.error(await res.text());return’Petit souci de connexion, je suis toujours là !’;}
-const d=await res.json();
-return d.choices[0].message.content.trim();
-}catch(e){console.error(e);return’Connexion momentanément perdue. Je réessaie bientôt !’;}
+function startCD() {
+  if (S.ct) clearInterval(S.ct);
+  var C = 2 * Math.PI * 45;
+  var ring = document.getElementById('tring');
+  ring.style.strokeDasharray = C;
+
+  function tick() {
+    var rem = Math.max(0, Math.floor((S.nextAt - Date.now()) / 1000));
+    var m = Math.floor(rem/60), s = rem % 60;
+    document.getElementById('tnum').textContent =
+      m > 0 ? (m + ':' + (s < 10 ? '0'+s : s)) : (rem + 's');
+    ring.style.strokeDashoffset = C * (1 - rem / S.totSecs);
+    if (rem <= 30) ring.classList.add('urgent');
+    else ring.classList.remove('urgent');
+  }
+  tick();
+  S.ct = setInterval(tick, 1000);
 }
 
-function addMsg(role,text){
-const el=document.createElement(‘div’);
-el.className=’bubble ’+(role===‘sp’?‘sp’:‘us’);
-if(role===‘sp’)el.innerHTML=`<div class="bn">Somnopilote</div>${esc(text)}`;
-else el.innerHTML=`<span style="font-size:9px;color:var(--accent);letter-spacing:1px;font-family:'Orbitron',monospace">TOI</span><br>${esc(text)}`;
-const s=document.getElementById(‘cscroll’);
-s.appendChild(el); s.scrollTop=s.scrollHeight; return el;
+function clearAll() { clearTimeout(S.mt); clearInterval(S.ct); clearNRT(); }
+
+function startNRT() {
+  S.nrt = setTimeout(function() {
+    document.getElementById('alertBox').classList.add('on');
+    speak(S.userName + ' ! ' + S.userName + ' ! Tu m\'entends ? Réponds-moi !');
+  }, 28000);
+}
+function clearNRT() { clearTimeout(S.nrt); dismissAlert(); }
+function dismissAlert() { document.getElementById('alertBox').classList.remove('on'); }
+
+function greet() {
+  callGroq(
+    'Tu t\'appelles Somnopilote. Tu es le copilote anti-somnolence de ' + S.userName +
+    ' qui souffre d\'hypersomnie au volant. Génère un message de bienvenue chaleureux en 2-3 phrases, en français, en la tutoyant. ' +
+    'Dis-lui que tu vas l\'interpeller régulièrement pour la maintenir éveillée.',
+    [],
+    function(text) {
+      addMsg('sp', text);
+      speak(text, function() { schedule(); });
+    }
+  );
 }
 
-function addThinking(){
-const el=document.createElement(‘div’);el.className=‘thinking’;
-el.innerHTML=’<div class="td"></div><div class="td"></div><div class="td"></div>’;
-const s=document.getElementById(‘cscroll’);s.appendChild(el);s.scrollTop=s.scrollHeight;return el;
+function interpellate() {
+  setStatus('a', 'INTERPELLATION');
+  var done = S.topics.slice(-25).join(', ');
+  callGroq(
+    'Interpelle ' + S.userName + ' pour la maintenir éveillée au volant. ' +
+    'SUJETS DÉJÀ TRAITÉS (ne pas répéter): ' + (done || 'aucun') + '. ' +
+    'Lance une interpellation originale: fait insolite, question philosophique, débat, devinette, quiz, anecdote. ' +
+    'Style: ' + styleLabel() + '. ' +
+    'Commence par son prénom. Pose UNE question précise à la fin. 2-3 phrases max. Naturel et engageant.',
+    S.hist,
+    function(text) {
+      var kw = '';
+      var words = text.split(' ');
+      for (var i=0; i<words.length; i++) { if (words[i].length > 5) { kw = words[i]; break; } }
+      S.topics.push(kw || text.substring(0,30));
+      addMsg('sp', text);
+      speak(text, function() {
+        startNRT();
+        setTimeout(startListen, 600);
+      });
+      schedule();
+    }
+  );
 }
 
-function setStatus(type,text){
-const d=document.getElementById(‘sdot’);
-document.getElementById(‘stxt’).textContent=text;
-d.className=‘dot’+(type===‘a’?’ a’:type===‘sp’?’ sp’:’ w’);
+function askNow() { clearAll(); interpellate(); }
+
+function handleSpeech(transcript) {
+  clearNRT();
+  addMsg('us', transcript);
+  setStatus('w', 'TRAITEMENT');
+  S.processing = true;
+  document.getElementById('lbtn').classList.add('proc');
+  document.getElementById('lstatus').textContent = 'Réflexion…';
+  var th = addThinking();
+  S.hist.push({ role:'user', content:transcript });
+
+  callGroq(
+    S.userName + ' vient de répondre: "' + transcript + '". ' +
+    'Réponds naturellement en 2-3 phrases. Rebondis sur sa réponse ou conclus en disant que tu reviendras bientôt.',
+    S.hist,
+    function(reply) {
+      th.remove();
+      S.hist.push({ role:'assistant', content:reply });
+      if (S.hist.length > 20) S.hist = S.hist.slice(-16);
+      S.processing = false;
+      document.getElementById('lbtn').classList.remove('proc');
+      document.getElementById('lstatus').textContent = 'Appuyer pour répondre';
+      addMsg('sp', reply);
+      speak(reply, function() { setStatus('w', 'EN ROUTE'); });
+    }
+  );
 }
 
-function styleLabel(){return{varied:‘très varié et surprenant’,quiz:‘quiz et devinettes’,philo:‘philosophie et débats’,culture:‘culture générale’,science:‘science et technologie’}[S.style]||‘varié’;}
+function callGroq(userMsg, hist, cb) {
+  var sys = 'Tu es Somnopilote, copilote bienveillant de ' + S.userName +
+    ' qui souffre d\'hypersomnie au volant. Tu parles en français, tu la tutoies, ' +
+    'tu es chaleureux et stimulant. Réponses courtes (2-3 phrases max) car elle conduit. ' +
+    'Tu varies constamment les sujets sans jamais répéter.';
 
-function esc(t){return t.replace(/&/g,’&’).replace(/</g,’<’).replace(/>/g,’>’);}
+  var messages = [{ role:'system', content:sys }];
+  for (var i=0; i<hist.length; i++) messages.push(hist[i]);
+  messages.push({ role:'user', content:userMsg });
+
+  fetch('https://api.groq.com/openai/v1/chat/completions', {
+    method: 'POST',
+    headers: {
+      'Authorization': 'Bearer ' + S.apiKey,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      model: 'llama-3.3-70b-versatile',
+      max_tokens: 180,
+      temperature: 0.92,
+      messages: messages
+    })
+  })
+  .then(function(res) {
+    if (!res.ok) { return res.text().then(function(t){ throw new Error(t); }); }
+    return res.json();
+  })
+  .then(function(data) {
+    cb(data.choices[0].message.content.trim());
+  })
+  .catch(function(err) {
+    console.error('Groq error:', err);
+    cb('Petit souci de connexion, je suis toujours là !');
+  });
+}
+
+function addMsg(role, text) {
+  var el = document.createElement('div');
+  el.className = 'bbl ' + (role === 'sp' ? 'bbl-sp' : 'bbl-us');
+  var name = role === 'sp' ? 'Somnopilote' : 'Toi';
+  el.innerHTML = '<div class="bn">' + name + '</div>' + esc(text);
+  var s = document.getElementById('cscroll');
+  s.appendChild(el);
+  s.scrollTop = s.scrollHeight;
+  return el;
+}
+
+function addThinking() {
+  var el = document.createElement('div');
+  el.className = 'thinking';
+  el.innerHTML = '<div class="td"></div><div class="td"></div><div class="td"></div>';
+  var s = document.getElementById('cscroll');
+  s.appendChild(el);
+  s.scrollTop = s.scrollHeight;
+  return el;
+}
+
+function setStatus(type, text) {
+  var d = document.getElementById('sdot');
+  document.getElementById('stxt').textContent = text;
+  d.className = 'dot ' + (type === 'a' ? 'dot-a' : type === 'sp' ? 'dot-sp' : 'dot-w');
+}
+
+function styleLabel() {
+  var labels = { varied:'très varié et surprenant', quiz:'quiz et devinettes', philo:'philosophie et débats', culture:'culture générale', science:'science et technologie' };
+  return labels[S.style] || 'varié';
+}
+
+function esc(t) {
+  return t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
 </script>
 
 </body>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Test Groq</title>
+<style>
+  body { font-family: monospace; background: #111; color: #eee; padding: 20px; font-size: 14px; }
+  input { width: 100%; padding: 10px; margin: 8px 0; background: #222; border: 1px solid #444; color: #eee; border-radius: 6px; font-size: 14px; }
+  button { padding: 12px 20px; background: #00c8ff; color: #000; border: none; border-radius: 8px; font-size: 14px; font-weight: bold; cursor: pointer; margin-top: 8px; }
+  #result { margin-top: 20px; padding: 14px; background: #1a1a1a; border-radius: 8px; white-space: pre-wrap; line-height: 1.6; min-height: 60px; border: 1px solid #333; }
+  .ok  { color: #30d158; }
+  .err { color: #ff2d55; }
+</style>
+</head>
+<body>
+<h2>🔧 Test connexion Groq</h2>
+<label>Clé API Groq :</label>
+<input type="password" id="key" placeholder="gsk_...">
+<button onclick="testGroq()">Tester</button>
+<div id="result">En attente…</div>
+
+<script>
+function testGroq() {
+  var key = document.getElementById('key').value.trim();
+  var out = document.getElementById('result');
+
+  if (!key.startsWith('gsk_')) {
+    out.innerHTML = '<span class="err">❌ Clé invalide — doit commencer par gsk_</span>';
+    return;
+  }
+
+  out.textContent = '⏳ Envoi de la requête…';
+
+  fetch('https://api.groq.com/openai/v1/chat/completions', {
+    method: 'POST',
+    headers: {
+      'Authorization': 'Bearer ' + key,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      model: 'llama3-8b-8192',
+      max_tokens: 50,
+      messages: [
+        { role: 'user', content: 'Dis bonjour en une phrase.' }
+      ]
+    })
+  })
+  .then(function(res) {
+    out.textContent += '\n\nStatut HTTP : ' + res.status + ' ' + res.statusText;
+    return res.json().then(function(data) {
+      return { status: res.status, data: data };
+    });
+  })
+  .then(function(r) {
+    if (r.status === 200) {
+      out.innerHTML = '<span class="ok">✅ CONNEXION OK !</span>\n\nRéponse : ' + r.data.choices[0].message.content;
+    } else {
+      out.innerHTML = '<span class="err">❌ Erreur ' + r.status + '</span>\n\n' + JSON.stringify(r.data, null, 2);
+    }
+  })
+  .catch(function(err) {
+    out.innerHTML = '<span class="err">❌ Erreur réseau</span>\n\n' + err.toString() +
+      '\n\nCause possible : CORS bloqué par Netlify.\nVérifie que netlify.toml est bien présent.';
+  });
+}
+</script>
+
+</body>
+</html>

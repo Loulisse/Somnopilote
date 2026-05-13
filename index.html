@@ -11,12 +11,7 @@
 <meta name="theme-color" content="#080c10">
 <link id="appIcon" rel="apple-touch-icon" href="">
 <style>
-:root {
-  --bg:#080c10; --surface:#0d1520; --surface2:#111d2e;
-  --accent:#00c8ff; --accent2:#ff6b35; --danger:#ff2d55;
-  --success:#30d158; --text:#e8f4f8; --dim:#5a7a8a;
-  --border:rgba(0,200,255,0.15);
-}
+:root{--bg:#080c10;--surface:#0d1520;--surface2:#111d2e;--accent:#00c8ff;--accent2:#ff6b35;--danger:#ff2d55;--success:#30d158;--text:#e8f4f8;--dim:#5a7a8a;--border:rgba(0,200,255,0.15);}
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
 html,body{height:100%;overflow:hidden;position:fixed;width:100%;}
 body{background:var(--bg);color:var(--text);font-family:-apple-system,'Helvetica Neue',sans-serif;}
@@ -24,110 +19,82 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,'Helvetica
 .screen::before{content:'';position:fixed;inset:0;pointer-events:none;background:radial-gradient(ellipse at 25% 15%,rgba(0,80,130,0.2) 0%,transparent 55%),radial-gradient(ellipse at 75% 85%,rgba(0,40,80,0.15) 0%,transparent 55%);z-index:0;}
 .screen>*{position:relative;z-index:1;width:100%;max-width:420px;}
 .screen.hidden{display:none;}
-
-.logo{font-family:‘Courier New’,monospace;font-size:30px;font-weight:900;letter-spacing:4px;text-align:center;}
-.logo .s1{color:var(–accent);}.logo .s2{color:var(–accent2);}
-.tagline{font-size:10px;letter-spacing:3px;color:var(–dim);text-transform:uppercase;text-align:center;margin-top:4px;}
-
-.card{background:var(–surface);border:1px solid var(–border);border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:15px;}
-.card-title{font-size:10px;letter-spacing:3px;color:var(–accent);text-transform:uppercase;}
+.logo{font-family:'Courier New',monospace;font-size:30px;font-weight:900;letter-spacing:4px;text-align:center;}
+.logo .s1{color:var(--accent);}.logo .s2{color:var(--accent2);}
+.tagline{font-size:10px;letter-spacing:3px;color:var(--dim);text-transform:uppercase;text-align:center;margin-top:4px;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:15px;}
+.card-title{font-size:10px;letter-spacing:3px;color:var(--accent);text-transform:uppercase;}
 .fg{display:flex;flex-direction:column;gap:6px;}
-.fg label{font-size:10px;color:var(–dim);letter-spacing:1px;text-transform:uppercase;}
-.fg input,.fg select{background:var(–bg);border:1px solid var(–border);border-radius:10px;padding:14px;color:var(–text);font-size:16px;outline:none;width:100%;-webkit-appearance:none;appearance:none;font-family:-apple-system,‘Helvetica Neue’,sans-serif;}
-.fg input:focus,.fg select:focus{border-color:var(–accent);}
-.fg input::placeholder{color:var(–dim);}
+.fg label{font-size:10px;color:var(--dim);letter-spacing:1px;text-transform:uppercase;}
+.fg input,.fg select{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:14px;color:var(--text);font-size:16px;outline:none;width:100%;-webkit-appearance:none;appearance:none;font-family:-apple-system,'Helvetica Neue',sans-serif;}
+.fg input:focus,.fg select:focus{border-color:var(--accent);}
+.fg input::placeholder{color:var(--dim);}
 .row2{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
-
-.btn{border:none;border-radius:12px;padding:17px;width:100%;font-size:14px;font-weight:700;letter-spacing:2px;cursor:pointer;text-transform:uppercase;font-family:-apple-system,‘Helvetica Neue’,sans-serif;}
+.btn{border:none;border-radius:12px;padding:17px;width:100%;font-size:14px;font-weight:700;letter-spacing:2px;cursor:pointer;text-transform:uppercase;font-family:-apple-system,'Helvetica Neue',sans-serif;}
 .btn:active{opacity:0.75;transform:scale(0.98);}
-.btn-blue{background:var(–accent);color:#000;}
-.btn-green{background:var(–success);color:#000;}
-.btn-orange{background:var(–accent2);color:#fff;}
-.btn-red{background:var(–danger);color:#fff;border-radius:10px;font-size:11px;}
-.btn-ghost{background:transparent;color:var(–accent);border:1px solid var(–border);border-radius:10px;font-size:11px;}
-
-#micWarn{display:none;background:rgba(255,107,53,0.12);border:1px solid rgba(255,107,53,0.3);border-radius:10px;padding:12px;font-size:12px;color:var(–accent2);text-align:center;line-height:1.6;}
+.btn-blue{background:var(--accent);color:#000;}
+.btn-red{background:var(--danger);color:#fff;border-radius:10px;font-size:11px;}
+.btn-ghost{background:transparent;color:var(--accent);border:1px solid var(--border);border-radius:10px;font-size:11px;}
+#micWarn{display:none;background:rgba(255,107,53,0.12);border:1px solid rgba(255,107,53,0.3);border-radius:10px;padding:12px;font-size:12px;color:var(--accent2);text-align:center;line-height:1.6;}
 #micWarn.show{display:block;}
-
-/* UNLOCK */
 #unlockScreen .big-icon{font-size:72px;text-align:center;}
-#unlockScreen .unlock-title{font-family:‘Courier New’,monospace;font-size:22px;font-weight:700;color:var(–accent);letter-spacing:3px;text-align:center;margin-top:8px;}
-#unlockScreen .unlock-sub{font-size:13px;color:var(–dim);text-align:center;line-height:1.7;margin-top:6px;}
-
-/* DRIVE */
+#unlockScreen .unlock-title{font-family:'Courier New',monospace;font-size:22px;font-weight:700;color:var(--accent);letter-spacing:3px;text-align:center;margin-top:8px;}
+#unlockScreen .unlock-sub{font-size:13px;color:var(--dim);text-align:center;line-height:1.7;margin-top:6px;}
 #driveScreen{padding:0;justify-content:flex-start;align-items:stretch;gap:0;overflow:hidden;}
 #driveScreen>*{max-width:100%;}
-.sbar{display:flex;align-items:center;justify-content:space-between;padding:13px 17px;border-bottom:1px solid var(–border);background:rgba(8,12,16,0.97);flex-shrink:0;z-index:1;}
-.sname{font-family:‘Courier New’,monospace;font-size:12px;font-weight:700;color:var(–accent);letter-spacing:2px;}
-.sind{display:flex;align-items:center;gap:6px;font-size:10px;color:var(–dim);letter-spacing:1px;text-transform:uppercase;}
+.sbar{display:flex;align-items:center;justify-content:space-between;padding:13px 17px;border-bottom:1px solid var(--border);background:rgba(8,12,16,0.97);flex-shrink:0;z-index:1;}
+.sname{font-family:'Courier New',monospace;font-size:12px;font-weight:700;color:var(--accent);letter-spacing:2px;}
+.sind{display:flex;align-items:center;gap:6px;font-size:10px;color:var(--dim);letter-spacing:1px;text-transform:uppercase;}
 .dot{width:7px;height:7px;border-radius:50%;animation:blink 2s infinite;}
-.dot-w{background:var(–accent);}
-.dot-a{background:var(–danger);animation-duration:0.4s;}
-.dot-sp{background:var(–accent2);animation-duration:0.8s;}
-.dot-ok{background:var(–success);animation-duration:1.5s;}
+.dot-w{background:var(--accent);}.dot-a{background:var(--danger);animation-duration:0.4s;}.dot-sp{background:var(--accent2);animation-duration:0.8s;}.dot-ok{background:var(--success);animation-duration:1.5s;}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:0.2}}
-
-/* MODE BANNER */
 .mode-banner{display:none;align-items:center;justify-content:center;gap:8px;padding:8px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;flex-shrink:0;}
 .mode-banner.show{display:flex;}
-.mode-banner.alert-mode{background:rgba(255,45,85,0.15);color:var(–danger);border-bottom:1px solid rgba(255,45,85,0.2);}
-.mode-banner.quiz-mode{background:rgba(0,200,255,0.08);color:var(–accent);border-bottom:1px solid rgba(0,200,255,0.1);}
-
+.mode-banner.alert-mode{background:rgba(255,45,85,0.15);color:var(--danger);border-bottom:1px solid rgba(255,45,85,0.2);}
+.mode-banner.quiz-mode{background:rgba(0,200,255,0.08);color:var(--accent);border-bottom:1px solid rgba(0,200,255,0.1);}
 .dmain{flex:1;display:flex;flex-direction:column;padding:13px;gap:11px;overflow:hidden;min-height:0;position:relative;z-index:1;}
-
-/* Timer */
 .tring-wrap{display:flex;justify-content:center;flex-shrink:0;}
 .tring-box{position:relative;width:100px;height:100px;}
 .tring-svg{width:100px;height:100px;transform:rotate(-90deg);}
 .tr-bg{fill:none;stroke:rgba(0,200,255,0.1);stroke-width:5;}
-.tr-fill{fill:none;stroke:var(–accent);stroke-width:5;stroke-linecap:round;stroke-dasharray:283;stroke-dashoffset:0;transition:stroke-dashoffset 1s linear;filter:drop-shadow(0 0 4px rgba(0,200,255,0.8));}
-.tr-fill.urgent{stroke:var(–danger);filter:drop-shadow(0 0 4px rgba(255,45,85,0.8));}
-.tr-fill.active-mode{stroke:var(–danger);}
+.tr-fill{fill:none;stroke:var(--accent);stroke-width:5;stroke-linecap:round;stroke-dasharray:283;stroke-dashoffset:0;transition:stroke-dashoffset 1s linear;filter:drop-shadow(0 0 4px rgba(0,200,255,0.8));}
+.tr-fill.urgent{stroke:var(--danger);filter:drop-shadow(0 0 4px rgba(255,45,85,0.8));}
 .tring-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;}
-.tnum{font-family:‘Courier New’,monospace;font-size:22px;font-weight:700;color:var(–accent);}
-.tlbl{font-size:8px;color:var(–dim);letter-spacing:2px;text-transform:uppercase;margin-top:2px;}
-
-/* Convo */
-.csec{flex:1;min-height:0;background:var(–surface);border:1px solid var(–border);border-radius:14px;padding:11px;display:flex;flex-direction:column;gap:7px;overflow:hidden;}
-.clbl{font-size:9px;color:var(–dim);letter-spacing:2px;text-transform:uppercase;flex-shrink:0;}
+.tnum{font-family:'Courier New',monospace;font-size:22px;font-weight:700;color:var(--accent);}
+.tlbl{font-size:8px;color:var(--dim);letter-spacing:2px;text-transform:uppercase;margin-top:2px;}
+.csec{flex:1;min-height:0;background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:11px;display:flex;flex-direction:column;gap:7px;overflow:hidden;}
+.clbl{font-size:9px;color:var(--dim);letter-spacing:2px;text-transform:uppercase;flex-shrink:0;}
 .cscroll{flex:1;overflow-y:auto;display:flex;flex-direction:column;gap:7px;min-height:0;}
 .cscroll::-webkit-scrollbar{display:none;}
 .bbl{max-width:92%;padding:10px 13px;border-radius:12px;font-size:14px;line-height:1.5;}
-.bbl-sp{background:var(–surface2);border:1px solid var(–border);border-bottom-left-radius:3px;align-self:flex-start;}
+.bbl-sp{background:var(--surface2);border:1px solid var(--border);border-bottom-left-radius:3px;align-self:flex-start;}
 .bbl-us{background:rgba(0,200,255,0.08);border:1px solid rgba(0,200,255,0.15);border-bottom-right-radius:3px;align-self:flex-end;}
-.bn{font-size:9px;color:var(–accent);letter-spacing:1px;text-transform:uppercase;margin-bottom:3px;font-family:‘Courier New’,monospace;}
-.spbar{display:none;align-items:center;gap:8px;padding:6px 10px;background:rgba(255,107,53,0.08);border:1px solid rgba(255,107,53,0.15);border-radius:20px;font-size:11px;color:var(–accent2);flex-shrink:0;}
+.bn{font-size:9px;color:var(--accent);letter-spacing:1px;text-transform:uppercase;margin-bottom:3px;font-family:'Courier New',monospace;}
+.spbar{display:none;align-items:center;gap:8px;padding:6px 10px;background:rgba(255,107,53,0.08);border:1px solid rgba(255,107,53,0.15);border-radius:20px;font-size:11px;color:var(--accent2);flex-shrink:0;}
 .spbar.on{display:flex;}
 .wf{display:flex;align-items:center;gap:2px;height:16px;}
-.wb{width:3px;border-radius:2px;background:var(–accent2);animation:wav 0.7s ease-in-out infinite;}
+.wb{width:3px;border-radius:2px;background:var(--accent2);animation:wav 0.7s ease-in-out infinite;}
 .wb:nth-child(1){height:5px;animation-delay:0s}.wb:nth-child(2){height:10px;animation-delay:.1s}.wb:nth-child(3){height:16px;animation-delay:.2s}.wb:nth-child(4){height:10px;animation-delay:.3s}.wb:nth-child(5){height:5px;animation-delay:.4s}
 @keyframes wav{0%,100%{transform:scaleY(0.3)}50%{transform:scaleY(1)}}
-
-/* Mic */
 .lsec{display:flex;flex-direction:column;align-items:center;gap:7px;flex-shrink:0;}
-.lbtn{width:62px;height:62px;border-radius:50%;background:rgba(0,200,255,0.08);border:2px solid var(–accent);display:flex;align-items:center;justify-content:center;font-size:26px;cursor:pointer;}
+.lbtn{width:62px;height:62px;border-radius:50%;background:rgba(0,200,255,0.08);border:2px solid var(--accent);display:flex;align-items:center;justify-content:center;font-size:26px;cursor:pointer;}
 .lbtn.on{background:rgba(0,200,255,0.25);box-shadow:0 0 0 8px rgba(0,200,255,0.12);}
-.lbtn.proc{border-color:var(–accent2);}
-.lbtn.alert-listening{border-color:var(–danger);background:rgba(255,45,85,0.15);box-shadow:0 0 0 8px rgba(255,45,85,0.1);}
+.lbtn.proc{border-color:var(--accent2);}
+.lbtn.alert-listening{border-color:var(--danger);background:rgba(255,45,85,0.15);}
 .lbtn:active{opacity:0.7;}
-.lstatus{font-size:10px;color:var(–dim);letter-spacing:1px;text-transform:uppercase;text-align:center;}
-
+.lstatus{font-size:10px;color:var(--dim);letter-spacing:1px;text-transform:uppercase;text-align:center;}
 .bctrl{padding:7px 13px 18px;display:grid;grid-template-columns:1fr 1fr;gap:10px;flex-shrink:0;z-index:1;}
-
 .thinking{display:flex;gap:5px;align-items:center;padding:10px 13px;align-self:flex-start;}
-.td{width:6px;height:6px;border-radius:50%;background:var(–dim);animation:th 1.1s ease-in-out infinite;}
+.td{width:6px;height:6px;border-radius:50%;background:var(--dim);animation:th 1.1s ease-in-out infinite;}
 .td:nth-child(2){animation-delay:.2s}.td:nth-child(3){animation-delay:.4s}
 @keyframes th{0%,100%{opacity:0.2;transform:scale(0.8)}50%{opacity:1;transform:scale(1.3)}}
-
-/* Alert overlay */
 #alertBox{display:none;position:fixed;inset:0;z-index:200;background:rgba(255,45,85,0.1);align-items:center;justify-content:center;}
 #alertBox.on{display:flex;}
-.ainner{background:var(–surface);border:2px solid var(–danger);border-radius:18px;padding:28px 22px;text-align:center;max-width:280px;}
+.ainner{background:var(--surface);border:2px solid var(--danger);border-radius:18px;padding:28px 22px;text-align:center;max-width:280px;}
 .aemoji{font-size:44px;margin-bottom:8px;}
-.atitle{font-family:‘Courier New’,monospace;font-size:16px;color:var(–danger);letter-spacing:2px;margin-bottom:6px;}
-.atext{font-size:13px;color:var(–dim);margin-bottom:16px;line-height:1.5;}
+.atitle{font-family:'Courier New',monospace;font-size:16px;color:var(--danger);letter-spacing:2px;margin-bottom:6px;}
+.atext{font-size:13px;color:var(--dim);margin-bottom:16px;line-height:1.5;}
 </style>
-
 </head>
 <body>
 
@@ -146,18 +113,18 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,'Helvetica
         <select id="ivar"><option value="0">Fixe</option><option value="2" selected>± 2 min</option><option value="3">± 3 min</option></select>
       </div>
     </div>
-    <div class="fg"><label>Style de quiz</label>
+    <div class="fg"><label>Thème des questions</label>
       <select id="style">
-        <option value="varied">Varié — tout type</option>
+        <option value="varied">Varié — tout mélangé</option>
         <option value="culture">Culture générale</option>
         <option value="nature">Nature et animaux</option>
         <option value="histoire">Histoire et géo</option>
         <option value="science">Science et corps humain</option>
-        <option value="actu">Société et actu</option>
+        <option value="actu">Société et anecdotes</option>
       </select>
     </div>
-    <div class="fg"><label>Voix</label>
-      <select id="voiceSelect"><option value="">Chargement des voix…</option></select>
+    <div class="fg"><label>Voix <span style="color:var(--dim);font-size:9px;">(★ = installée sur l'iPhone)</span></label>
+      <select id="voiceSelect"><option value="">Chargement…</option></select>
     </div>
     <div id="micWarn">⚠️ Micro non autorisé — Réglages → Safari → Micro → Autoriser</div>
     <button class="btn btn-blue" id="btnStart">🚗 &nbsp;DÉMARRER</button>
@@ -168,7 +135,7 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,'Helvetica
 
 <div id="unlockScreen" class="screen hidden">
   <div class="big-icon">🚗</div>
-  <div><div class="unlock-title">PRÊT(E) ?</div><div class="unlock-sub">Appuie pour activer la voix<br>et démarrer Somnopilote.</div></div>
+  <div><div class="unlock-title">PRÊT(E) ?</div><div class="unlock-sub">Un tap pour activer la voix<br>et démarrer Somnopilote.</div></div>
   <button class="btn btn-blue" id="btnUnlock">🎙️ &nbsp;ACTIVER LA VOIX</button>
 </div>
 
@@ -179,11 +146,7 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,'Helvetica
     <div class="sname" id="sname">SOMNOPILOTE</div>
     <div class="sind"><div class="dot dot-w" id="sdot"></div><span id="stxt">EN ROUTE</span></div>
   </div>
-
-  <!-- Bandeau mode actif -->
-
   <div class="mode-banner" id="modeBanner"></div>
-
   <div class="dmain">
     <div class="tring-wrap">
       <div class="tring-box">
@@ -191,34 +154,25 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,'Helvetica
           <circle class="tr-bg" cx="50" cy="50" r="45"/>
           <circle class="tr-fill" id="tring" cx="50" cy="50" r="45"/>
         </svg>
-        <div class="tring-center">
-          <div class="tnum" id="tnum">--</div>
-          <div class="tlbl" id="tlbl">Prochain</div>
-        </div>
+        <div class="tring-center"><div class="tnum" id="tnum">--</div><div class="tlbl" id="tlbl">Prochain</div></div>
       </div>
     </div>
-
-```
-<div class="csec">
-  <div class="clbl">Conversation</div>
-  <div class="cscroll" id="cscroll"></div>
-  <div class="spbar" id="spbar">
-    <div class="wf"><div class="wb"></div><div class="wb"></div><div class="wb"></div><div class="wb"></div><div class="wb"></div></div>
-    <span>Somnopilote parle…</span>
+    <div class="csec">
+      <div class="clbl">Conversation</div>
+      <div class="cscroll" id="cscroll"></div>
+      <div class="spbar" id="spbar">
+        <div class="wf"><div class="wb"></div><div class="wb"></div><div class="wb"></div><div class="wb"></div><div class="wb"></div></div>
+        <span>Somnopilote parle…</span>
+      </div>
+    </div>
+    <div class="lsec">
+      <div class="lbtn" id="lbtn">🎙️</div>
+      <div class="lstatus" id="lstatus">Appuyer pour répondre</div>
+    </div>
   </div>
-</div>
-
-<div class="lsec">
-  <div class="lbtn" id="lbtn">🎙️</div>
-  <div class="lstatus" id="lstatus">Appuyer pour répondre</div>
-</div>
-```
-
-  </div>
-
   <div class="bctrl">
     <button class="btn btn-ghost" id="btnSOS">🆘 Je somnole !</button>
-    <button class="btn btn-red"   id="btnStop">■ Arrêter</button>
+    <button class="btn btn-red" id="btnStop">■ Arrêter</button>
   </div>
 </div>
 
@@ -240,42 +194,115 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,'Helvetica
     var c=document.createElement('canvas');c.width=c.height=180;
     var x=c.getContext('2d');
     x.fillStyle='#080c10';x.fillRect(0,0,180,180);
-    x.strokeStyle='#00c8ff';x.lineWidth=8;
-    x.beginPath();x.arc(90,90,74,0,Math.PI*2);x.stroke();
-    x.strokeStyle='#ff6b35';x.lineWidth=4;
-    x.beginPath();x.arc(90,90,56,-Math.PI/2,Math.PI,false);x.stroke();
-    x.fillStyle='#00c8ff';x.font='bold 70px Courier New';
-    x.textAlign='center';x.textBaseline='middle';x.fillText('S',90,90);
+    x.strokeStyle='#00c8ff';x.lineWidth=8;x.beginPath();x.arc(90,90,74,0,Math.PI*2);x.stroke();
+    x.strokeStyle='#ff6b35';x.lineWidth=4;x.beginPath();x.arc(90,90,56,-Math.PI/2,Math.PI,false);x.stroke();
+    x.fillStyle='#00c8ff';x.font='bold 70px Courier New';x.textAlign='center';x.textBaseline='middle';x.fillText('S',90,90);
     document.getElementById('appIcon').href=c.toDataURL('image/png');
   }catch(e){}
 })();
 
-// ── STATE ──
+// ══════════════════════════════════════
+// STATE
+// ══════════════════════════════════════
 var S={
   apiKey:'',userName:'toi',style:'varied',
   iMs:7*60000,vMs:2*60000,
   nextAt:0,totSecs:0,
   mt:null,ct:null,nrt:null,
+  silenceTimer:null,          // wake lock audio hack
+  audioCtx:null,              // AudioContext pour silence
   listening:false,speaking:false,processing:false,
   rec:null,synth:window.speechSynthesis,
-  hist:[],topics:[],
-  // modes : 'idle' | 'checkin' | 'quiz' | 'alert-mode'
-  mode:'idle',
-  quizCount:0,   // questions posées dans le quiz en cours
-  quizTotal:4,   // nb questions par quiz
+  hist:[],topics:[],voiceList:[],
+  mode:'idle',                // 'idle'|'checkin'|'quiz'|'alert-mode'
+  quizCount:0,quizTotal:4,
 };
 
+// ══════════════════════════════════════
+// WAKE LOCK HACK — son silencieux en boucle
+// empêche iOS de mettre en veille l'audio
+// ce qui maintient la page active
+// ══════════════════════════════════════
+function startSilenceLoop(){
+  try{
+    S.audioCtx=new (window.AudioContext||window.webkitAudioContext)();
+    function tick(){
+      if(!S.audioCtx)return;
+      var buf=S.audioCtx.createBuffer(1,S.audioCtx.sampleRate*0.1,S.audioCtx.sampleRate);
+      var src=S.audioCtx.createBufferSource();
+      src.buffer=buf;
+      src.connect(S.audioCtx.destination);
+      src.start(0);
+      S.silenceTimer=setTimeout(tick,5000); // toutes les 5s
+    }
+    tick();
+  }catch(e){console.warn('AudioContext non dispo:',e);}
+}
+
+function stopSilenceLoop(){
+  clearTimeout(S.silenceTimer);
+  if(S.audioCtx){try{S.audioCtx.close();}catch(e){}S.audioCtx=null;}
+}
+
+// ══════════════════════════════════════
+// VOIX — chargement robuste pour Safari iOS
+// ══════════════════════════════════════
+function loadVoices(){
+  var vs=S.synth.getVoices();
+  if(vs.length===0)return; // pas encore prêt
+  var fr=vs.filter(function(v){return v.lang.startsWith('fr');});
+  var list=fr.length>0?fr:vs;
+  S.voiceList=list;
+  var sel=document.getElementById('voiceSelect');
+  sel.innerHTML='';
+  list.forEach(function(v,i){
+    var o=document.createElement('option');
+    o.value=i;
+    o.textContent=v.name+(v.localService?' ★':'');
+    sel.appendChild(o);
+  });
+  // Priorité : locale fr-FR > locale fr > réseau fr-FR > réseau fr
+  var best=-1;
+  var priorities=[
+    function(v){return v.localService&&v.lang==='fr-FR';},
+    function(v){return v.localService&&v.lang.startsWith('fr');},
+    function(v){return v.lang==='fr-FR';},
+    function(v){return v.lang.startsWith('fr');}
+  ];
+  for(var p=0;p<priorities.length&&best===-1;p++){
+    best=list.findIndex(priorities[p]);
+  }
+  if(best!==-1)sel.selectedIndex=best;
+}
+
+function getVoice(){
+  if(!S.voiceList||S.voiceList.length===0){
+    // Dernier recours : recharge
+    var vs=S.synth.getVoices();
+    var fr=vs.filter(function(v){return v.lang.startsWith('fr');});
+    S.voiceList=fr.length>0?fr:vs;
+  }
+  var idx=parseInt(document.getElementById('voiceSelect').value)||0;
+  return S.voiceList[idx]||S.voiceList[0]||null;
+}
+
+// ══════════════════════════════════════
+// NAVIGATION ÉCRANS
+// ══════════════════════════════════════
 function show(id){
-  ['setupScreen','unlockScreen','driveScreen'].forEach(function(s){document.getElementById(s).classList.add('hidden');});
+  ['setupScreen','unlockScreen','driveScreen'].forEach(function(s){
+    document.getElementById(s).classList.add('hidden');
+  });
   document.getElementById(id).classList.remove('hidden');
 }
 
 document.addEventListener('DOMContentLoaded',function(){
-  // Charge les voix dès que possible
+  // Charge voix immédiatement + quand elles arrivent
   loadVoices();
-  if(window.speechSynthesis.onvoiceschanged !== undefined){
-    window.speechSynthesis.onvoiceschanged = loadVoices;
-  }
+  S.synth.onvoiceschanged=loadVoices;
+  // Retry après 1s (Safari parfois lent)
+  setTimeout(loadVoices,1000);
+
   document.getElementById('btnStart').addEventListener('click',startDriving);
   document.getElementById('btnUnlock').addEventListener('click',unlockVoice);
   document.getElementById('btnStop').addEventListener('click',stopDriving);
@@ -284,36 +311,9 @@ document.addEventListener('DOMContentLoaded',function(){
   document.getElementById('btnSOS').addEventListener('click',triggerSOS);
 });
 
-// ── SETUP ──
-// ── CHARGEMENT DES VOIX ──
-function loadVoices(){
-  var vs = window.speechSynthesis.getVoices();
-  var sel = document.getElementById('voiceSelect');
-  // Garde toutes les voix fr + voix non-fr si pas de fr
-  var fr = vs.filter(function(v){return v.lang.startsWith('fr');});
-  var list = fr.length > 0 ? fr : vs;
-  if(list.length === 0) return;
-  sel.innerHTML = '';
-  list.forEach(function(v, i){
-    var opt = document.createElement('option');
-    opt.value = i;
-    opt.textContent = v.name + (v.localService ? ' ★' : '');
-    sel.appendChild(opt);
-  });
-  // Pré-sélectionne la meilleure voix (locale en premier)
-  var best = list.findIndex(function(v){return v.localService && v.lang==='fr-FR';});
-  if(best === -1) best = list.findIndex(function(v){return v.lang==='fr-FR';});
-  if(best !== -1) sel.selectedIndex = best;
-  S.voiceList = list;
-}
-
-function getSelectedVoice(){
-  var sel = document.getElementById('voiceSelect');
-  if(!S.voiceList || S.voiceList.length === 0) return null;
-  var idx = parseInt(sel.value);
-  return S.voiceList[idx] || S.voiceList[0];
-}
-
+// ══════════════════════════════════════
+// SETUP & NAVIGATION
+// ══════════════════════════════════════
 function startDriving(){
   var name=document.getElementById('uname').value.trim();
   var key=document.getElementById('akey').value.trim();
@@ -324,19 +324,25 @@ function startDriving(){
   S.vMs=parseInt(document.getElementById('ivar').value)*60000;
   S.style=document.getElementById('style').value;
   document.getElementById('sname').textContent='SOMNOPILOTE · '+name.toUpperCase();
-  window.speechSynthesis.getVoices();
+  // Force rechargement voix avant de passer à l'écran suivant
+  loadVoices();
   show('unlockScreen');
 }
 
 function unlockVoice(){
-  var u=new SpeechSynthesisUtterance(' ');u.volume=0;u.rate=10;S.synth.speak(u);
+  // 1. Silence court pour débloquer l'audio Safari
+  var u=new SpeechSynthesisUtterance(' ');
+  u.volume=0.01;u.rate=10;
+  S.synth.speak(u);
+  // 2. Démarre le silence loop (wake lock)
+  startSilenceLoop();
   show('driveScreen');
-  wakeLock();initMic();
+  initMic();
 }
 
 function stopDriving(){
   if(!confirm('Arrêter Somnopilote ?'))return;
-  clearAll();S.synth.cancel();
+  clearAll();S.synth.cancel();stopSilenceLoop();
   if(S.rec)try{S.rec.stop();}catch(e){}
   document.getElementById('cscroll').innerHTML='';
   S.hist=[];S.topics=[];S.mode='idle';S.quizCount=0;
@@ -344,9 +350,9 @@ function stopDriving(){
   show('setupScreen');
 }
 
-function wakeLock(){if('wakeLock'in navigator)navigator.wakeLock.request('screen').catch(function(){});}
-
-// ── MIC ──
+// ══════════════════════════════════════
+// MICRO
+// ══════════════════════════════════════
 function initMic(){
   navigator.mediaDevices.getUserMedia({audio:true})
     .then(function(stream){stream.getTracks().forEach(function(t){t.stop();});setupRec();greet();})
@@ -362,10 +368,8 @@ function setupRec(){
   S.rec.onend=function(){if(S.listening)stopListen();};
 }
 
-function toggleListen(){
-  if(S.speaking||S.processing)return;
-  S.listening?stopListen():startListen();
-}
+function toggleListen(){if(S.speaking||S.processing)return;S.listening?stopListen():startListen();}
+
 function startListen(){
   if(!S.rec){setupRec();if(!S.rec)return;}
   S.listening=true;clearNRT();
@@ -376,28 +380,40 @@ function startListen(){
   setStatus('w','ÉCOUTE');
   try{S.rec.start();}catch(e){}
 }
+
 function stopListen(){
   S.listening=false;
-  var btn=document.getElementById('lbtn');
-  btn.classList.remove('on','alert-listening');
+  document.getElementById('lbtn').classList.remove('on','alert-listening');
   document.getElementById('lstatus').textContent='Appuyer pour répondre';
   try{S.rec.stop();}catch(e){}
 }
 
-// ── SPEAK ──
+// ══════════════════════════════════════
+// SYNTHÈSE VOCALE
+// ══════════════════════════════════════
 function speak(text,cb){
   S.synth.cancel();
   var u=new SpeechSynthesisUtterance(text);
-  u.lang='fr-FR';u.rate=0.93;u.pitch=1.0;u.volume=1.0;
-  var vs=S.synth.getVoices();
-  for(var i=0;i<vs.length;i++){if(vs[i].lang==='fr-FR'){u.voice=vs[i];break;}}
+  u.lang='fr-FR';u.rate=0.9;u.pitch=1.05;u.volume=1.0;
+
+  // Reprend les voix fraîches à chaque appel (Safari oublie parfois)
+  var freshVoices=S.synth.getVoices();
+  var fr=freshVoices.filter(function(v){return v.lang.startsWith('fr');});
+  var pool=fr.length>0?fr:freshVoices;
+  S.voiceList=pool;
+
+  var voice=getVoice();
+  if(voice){u.voice=voice;u.lang=voice.lang;}
+
   S.speaking=true;
   document.getElementById('spbar').classList.add('on');
   setStatus('sp','PARLE');
   u.onend=u.onerror=function(){endSpeak(cb);};
   S.synth.speak(u);
+  // Fix bug Safari : la synthèse peut se mettre en pause
   var fix=setInterval(function(){if(!S.speaking){clearInterval(fix);return;}if(S.synth.paused)S.synth.resume();},1500);
 }
+
 function endSpeak(cb){
   S.speaking=false;
   document.getElementById('spbar').classList.remove('on');
@@ -405,7 +421,9 @@ function endSpeak(cb){
   if(cb)cb();
 }
 
-// ── TIMER ──
+// ══════════════════════════════════════
+// TIMER & SCHEDULING
+// ══════════════════════════════════════
 function schedule(){
   clearAll();
   var j=(Math.random()*2-1)*S.vMs;
@@ -416,6 +434,7 @@ function schedule(){
   document.getElementById('tlbl').textContent='Prochain';
   startCD();
 }
+
 function startCD(){
   if(S.ct)clearInterval(S.ct);
   var C=2*Math.PI*45;
@@ -429,65 +448,74 @@ function startCD(){
   }
   tick();S.ct=setInterval(tick,1000);
 }
+
 function clearAll(){clearTimeout(S.mt);clearInterval(S.ct);clearNRT();}
 
-// ── NO RESPONSE ALERT ──
+// ══════════════════════════════════════
+// ALERTE SANS RÉPONSE
+// ══════════════════════════════════════
 function startNRT(){
   S.nrt=setTimeout(function(){
     document.getElementById('alertBox').classList.add('on');
-    speak(S.userName+'! '+S.userName+'! Tu m\'entends? Réponds-moi!');
+    speak(S.userName+'! '+S.userName+'! Tu m\'entends? Dis quelque chose!');
   },28000);
 }
 function clearNRT(){clearTimeout(S.nrt);dismissAlert();}
 function dismissAlert(){document.getElementById('alertBox').classList.remove('on');}
 
-// ── BANNER ──
+// ══════════════════════════════════════
+// BANNIÈRE MODE
+// ══════════════════════════════════════
 function showBanner(text,cls){
   var b=document.getElementById('modeBanner');
   b.textContent=text;b.className='mode-banner show '+cls;
 }
-function hideBanner(){
-  document.getElementById('modeBanner').className='mode-banner';
-}
+function hideBanner(){document.getElementById('modeBanner').className='mode-banner';}
 
-// ════════════════════════════════════
-// LOGIQUE DE CONVERSATION
-// ════════════════════════════════════
+// ══════════════════════════════════════════════════
+// CONVERSATION
+// ══════════════════════════════════════════════════
+
+var SYS='Tu es Somnopilote, le copilote de '+'{NAME}'+' qui lutte contre l\'hypersomnie au volant. '+
+  'Tu parles comme un ami proche — naturel, direct, sans chichis. Pas de formules toutes faites, pas de "super!" ou "génial!". '+
+  'Phrases courtes, rythme vif. Tu la tutoies. Maximum 2 phrases par réponse.';
+
+function sysPrompt(){return SYS.replace('{NAME}',S.userName);}
 
 // 1. BIENVENUE
 function greet(){
   callGroq(
-    'Tu t\'appelles Somnopilote, copilote anti-somnolence de '+S.userName+' (hypersomnie). '+
-    'Message de bienvenue très court (2 phrases), chaleureux, en français, tutoiement. '+
-    'Dis que tu vas régulièrement t\'assurer qu\'elle va bien.',
+    'Présente-toi à '+S.userName+' en 2 phrases max. Tu es son copilote pour éviter qu\'elle s\'endorme au volant. '+
+    'Ton décontracté, pas trop enthousiaste. Dis-lui que tu vas checker régulièrement si elle tient le coup.',
     [],function(t){addMsg('sp',t);speak(t,function(){schedule();});}
   );
 }
 
-// 2. CHECK-IN : demande si ça va ou pas
+// 2. CHECK-IN
 function doCheckin(){
-  S.mode='checkin';
-  clearAll();
+  S.mode='checkin';clearAll();
   setStatus('a','CHECK-IN');
-  var msg=S.userName+', tu tiens le coup ? Réponds oui ou non, je m\'adapte !';
+  // Varie les formulations du check-in
+  var questions=[
+    S.userName+', ça tient ? Oui ou non.',
+    'Hey '+S.userName+', tu es avec moi ?',
+    S.userName+', les yeux ouverts ? Dis-moi.',
+    'Check '+S.userName+' — tu somnoles ou tu tiens ?',
+    S.userName+', niveau énergie, c\'est comment ?'
+  ];
+  var msg=questions[Math.floor(Math.random()*questions.length)];
   addMsg('sp',msg);
-  speak(msg,function(){startNRT();setTimeout(startListen,500);});
-  // pas de re-schedule ici, on attend la réponse
+  speak(msg,function(){startNRT();setTimeout(startListen,400);});
 }
 
-// 3. RÉPONSE AU CHECK-IN
+// 3. DISPATCH CHECK-IN
 function handleCheckin(transcript){
   var t=transcript.toLowerCase();
-  // détecte "non" / "somnole" / "fatigue" / "endors"
-  var sleepy=t.indexOf('non')!==-1||t.indexOf('somnol')!==-1||t.indexOf('fatigu')!==-1||t.indexOf('endors')!==-1||t.indexOf('dormir')!==-1||t.indexOf('mal')!==-1;
-  if(sleepy){
-    startAlertMode();
-  } else {
-    startQuiz();
-  }
+  var sleepy=/(non|somnol|fatigu|endors|dormir|mal|pas bien|moyen|dur|difficile|peine)/.test(t);
+  sleepy?startAlertMode():startQuiz();
 }
 
-// 4. MODE ALERTE : discussion continue jusqu'à arrêt
+// 4. MODE ALERTE — discussion continue
 function startAlertMode(){
   S.mode='alert-mode';
   showBanner('⚠️ MODE ALERTE — DISCUSSION CONTINUE','alert-mode');
@@ -496,26 +524,26 @@ function startAlertMode(){
   document.getElementById('tlbl').textContent='Alerte';
   var done=S.topics.slice(-15).join(', ');
   callGroq(
-    S.userName+' somnole au volant. Lance IMMÉDIATEMENT une discussion stimulante et urgente. '+
-    'Sujet pas déjà traité (éviter: '+( done||'aucun')+') . '+
-    'Commence par "Accroche-toi ! " puis pose une question simple et directe qui demande une réponse immédiate. '+
-    'Style dynamique, phrases courtes, ton urgent. 2-3 phrases max.',
+    S.userName+' somnole au volant, c\'est urgent. Lance une discussion immédiatement. '+
+    'Pose une question directe et simple qui demande une vraie réponse — pas trop intellectuelle, juste stimulante. '+
+    'Évite ces thèmes déjà utilisés: '+(done||'aucun')+'. '+
+    'Commence fort, ton éveillant. 1-2 phrases max.',
     S.hist,function(t){
-      S.topics.push(t.split(' ').filter(function(w){return w.length>5;})[0]||'sujet');
+      S.topics.push(t.split(' ').filter(function(w){return w.length>4;})[0]||'topic');
       addMsg('sp',t);
       speak(t,function(){startNRT();setTimeout(startListen,400);});
     }
   );
 }
 
-// 5. CONTINUER LE MODE ALERTE (après chaque réponse)
+// 5. SUITE MODE ALERTE
 function continueAlertMode(transcript){
   S.hist.push({role:'user',content:transcript});
   if(S.hist.length>8)S.hist=S.hist.slice(-6);
   callGroq(
-    S.userName+' répond "'+transcript+'" pendant qu\'elle essaie de rester éveillée au volant. '+
-    'Réagis vite, encourage-la, rebondis sur sa réponse et pose UNE nouvelle question simple et directe. '+
-    'Reste dynamique et engageant. 2 phrases max.',
+    S.userName+' vient de dire: "'+transcript+'". '+
+    'Rebondis dessus naturellement et relance avec une nouvelle question directe. '+
+    'Garde le rythme — elle doit rester active. 2 phrases max.',
     S.hist,function(r){
       S.hist.push({role:'assistant',content:r});
       addMsg('sp',r);
@@ -524,33 +552,33 @@ function continueAlertMode(transcript){
   );
 }
 
-// 6. QUIZ : 4-5 questions légères
+// 6. QUIZ — 4 à 5 questions légères
 function startQuiz(){
-  S.mode='quiz';S.quizCount=0;S.quizTotal=4+Math.floor(Math.random()*2); // 4 ou 5
-  showBanner('🎯 QUIZ · '+S.quizTotal+' QUESTIONS','quiz-mode');
+  S.mode='quiz';S.quizCount=0;
+  S.quizTotal=4+Math.floor(Math.random()*2);
+  showBanner('🎯 QUIZ — '+S.quizTotal+' QUESTIONS','quiz-mode');
   setStatus('ok','QUIZ EN COURS');
-  nextQuizQuestion(null);
+  nextQuestion(null);
 }
 
-function nextQuizQuestion(previousAnswer){
+function nextQuestion(prevAnswer){
   S.quizCount++;
-  var remaining=S.quizTotal-S.quizCount+1;
-  var styleLabel=getStyleLabel();
-  var prompt='';
+  var theme=getStyleLabel();
+  var prompt;
 
-  if(previousAnswer){
-    // réponse à la question précédente + nouvelle question
-    prompt=''+S.userName+' répond "'+previousAnswer+'" à ton quiz. '+
-      'Commente sa réponse en 1 phrase fun (donne la bonne réponse si elle s\'est trompée). '+
-      'Puis pose la question suivante ('+S.quizCount+'/'+S.quizTotal+'): '+
-      'une question légère, simple, fun sur '+styleLabel+'. '+
-      'Question à choix : propose 2 options (ex: "plutôt A ou B ?"). Très court, spontané.';
+  if(!prevAnswer){
+    // 1ère question
+    prompt='Lance un mini-quiz de '+S.quizTotal+' questions à '+S.userName+'. '+
+      'Annonce-le en une phrase courte et pose directement la question 1/'+S.quizTotal+'. '+
+      'Thème: '+theme+'. '+
+      'Question simple, avec 2 options clairement proposées (genre "plutôt X ou Y?"). '+
+      'Pas de grandes explications, juste la question.';
   } else {
-    // première question
-    prompt='Lance un quiz de '+S.quizTotal+' questions légères et fun pour '+S.userName+'. '+
-      'Annonce-le rapidement et pose la 1ère question (1/'+S.quizTotal+'): '+
-      'thème '+styleLabel+', question simple avec 2 choix de réponse proposés. '+
-      'Style décontracté, spontané. 2 phrases max.';
+    // Questions suivantes
+    prompt=S.userName+' répond "'+prevAnswer+'" à ta question '+( S.quizCount-1)+'/'+S.quizTotal+'. '+
+      'Réagis en 1 phrase courte (donne la bonne réponse si elle s\'est trompée, sans morale). '+
+      'Enchaîne immédiatement avec la question '+S.quizCount+'/'+S.quizTotal+' sur '+theme+'. '+
+      '2 options simples proposées. Rythme vif.';
   }
 
   callGroq(prompt,S.hist,function(t){
@@ -558,10 +586,12 @@ function nextQuizQuestion(previousAnswer){
     if(S.hist.length>12)S.hist=S.hist.slice(-10);
     addMsg('sp',t);
     speak(t,function(){
-      if(S.quizCount<=S.quizTotal){
+      if(S.quizCount<S.quizTotal){
         startNRT();setTimeout(startListen,400);
       } else {
-        finishQuiz();
+        // Dernière question — on attend la réponse avant de finir
+        startNRT();setTimeout(startListen,400);
+        S.quizCount++; // marque qu'on est à la dernière
       }
     });
   });
@@ -570,21 +600,20 @@ function nextQuizQuestion(previousAnswer){
 function finishQuiz(){
   S.mode='idle';hideBanner();
   callGroq(
-    'Le quiz de '+S.quizTotal+' questions est terminé. Fais un bilan fun en 1-2 phrases et dis à '+S.userName+' que tu reviendras la voir bientôt.',
+    'Le quiz est fini. Bilan en 1-2 phrases, sans chichis. Dis à '+S.userName+' que tu reviendras la voir bientôt.',
     S.hist,function(t){
-      addMsg('sp',t);speak(t,function(){
-        S.hist=[];setStatus('w','EN ROUTE');schedule();
-      });
+      addMsg('sp',t);
+      speak(t,function(){S.hist=[];setStatus('w','EN ROUTE');schedule();});
     }
   );
 }
 
-// 7. BOUTON SOS — déclenche alerte immédiatement
-function triggerSOS(){
-  clearAll();startAlertMode();
-}
+// 7. BOUTON SOS
+function triggerSOS(){clearAll();startAlertMode();}
 
-// ── DISPATCH RÉPONSES ──
+// ══════════════════════════════════════
+// DISPATCH RÉPONSES
+// ══════════════════════════════════════
 function handleSpeech(transcript){
   clearNRT();
   addMsg('us',transcript);
@@ -604,17 +633,16 @@ function handleSpeech(transcript){
     } else if(S.mode==='alert-mode'){
       continueAlertMode(transcript);
     } else if(S.mode==='quiz'){
-      if(S.quizCount<S.quizTotal){
-        nextQuizQuestion(transcript);
+      if(S.quizCount<=S.quizTotal){
+        nextQuestion(transcript);
       } else {
         S.hist.push({role:'user',content:transcript});
         finishQuiz();
       }
     } else {
-      // mode idle — réponse libre
       S.hist.push({role:'user',content:transcript});
       callGroq(
-        S.userName+' dit "'+transcript+'". Réponds en 1-2 phrases et dis que tu reviendras bientôt.',
+        S.userName+' dit "'+transcript+'". Réponds naturellement en 1-2 phrases et dis que tu repasses bientôt.',
         S.hist,function(r){
           S.hist.push({role:'assistant',content:r});
           addMsg('sp',r);speak(r,function(){setStatus('w','EN ROUTE');});
@@ -624,27 +652,29 @@ function handleSpeech(transcript){
   },300);
 }
 
-// ── GROQ API ──
+// ══════════════════════════════════════
+// GROQ API
+// ══════════════════════════════════════
 function callGroq(userMsg,hist,cb){
-  var sys='Tu es Somnopilote, copilote bienveillant de '+S.userName+' contre l\'hypersomnie au volant. '+
-    'Français, tutoiement, ton chaleureux et dynamique. Phrases courtes car elle conduit.';
-  var msgs=[{role:'system',content:sys}];
+  var msgs=[{role:'system',content:sysPrompt()}];
   for(var i=0;i<hist.length;i++)msgs.push(hist[i]);
   msgs.push({role:'user',content:userMsg});
   fetch('https://api.groq.com/openai/v1/chat/completions',{
     method:'POST',
     headers:{'Authorization':'Bearer '+S.apiKey,'Content-Type':'application/json'},
-    body:JSON.stringify({model:'llama-3.1-8b-instant',max_tokens:180,temperature:0.88,messages:msgs})
+    body:JSON.stringify({model:'llama-3.1-8b-instant',max_tokens:150,temperature:0.85,messages:msgs})
   })
   .then(function(res){return res.json();})
   .then(function(d){
     if(d.choices&&d.choices[0])cb(d.choices[0].message.content.trim());
-    else{console.error(d);cb('Je suis là, petit souci passager !');}
+    else{console.error(d);cb('Grésillements sur la ligne — je suis toujours là !');}
   })
-  .catch(function(e){console.error(e);cb('Connexion perdue un instant, je reviens !');});
+  .catch(function(e){console.error(e);cb('Connexion coupée une seconde. Je reviens !');});
 }
 
-// ── UI ──
+// ══════════════════════════════════════
+// UI HELPERS
+// ══════════════════════════════════════
 function addMsg(role,text){
   var el=document.createElement('div');
   el.className='bbl '+(role==='sp'?'bbl-sp':'bbl-us');
@@ -664,7 +694,7 @@ function setStatus(type,text){
   d.className='dot '+(type==='a'?'dot-a':type==='sp'?'dot-sp':type==='ok'?'dot-ok':'dot-w');
 }
 function getStyleLabel(){
-  return{varied:'culture générale et nature',culture:'culture générale',nature:'nature et animaux',histoire:'histoire et géographie',science:'science et corps humain',actu:'société et anecdotes'}[S.style]||'culture générale';
+  return{varied:'mélange culture, nature, anecdotes rigolotes',culture:'culture générale',nature:'nature et animaux',histoire:'histoire et géographie',science:'science et corps humain',actu:'société et anecdotes du quotidien'}[S.style]||'culture générale';
 }
 function esc(t){return t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
 </script>

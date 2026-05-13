@@ -399,10 +399,8 @@ function startDriving() {
 
   document.getElementById('sname').textContent = 'SOMNOPILOTE · ' + name.toUpperCase();
   document.getElementById('setupScreen').style.display = 'none';
-  document.getElementById('driveScreen').style.display = 'flex';
-
-  wakeLock();
-  initMic();
+  document.getElementById('unlockScreen').style.display = 'flex';
+  window.speechSynthesis.getVoices();
 }
 
 function stopDriving() {

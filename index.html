@@ -156,6 +156,9 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,'Helvetica
         <option value="actu">Société et actu</option>
       </select>
     </div>
+    <div class="fg"><label>Voix</label>
+      <select id="voiceSelect"><option value="">Chargement des voix…</option></select>
+    </div>
     <div id="micWarn">⚠️ Micro non autorisé — Réglages → Safari → Micro → Autoriser</div>
     <button class="btn btn-blue" id="btnStart">🚗 &nbsp;DÉMARRER</button>
   </div>
@@ -268,6 +271,11 @@ function show(id){
 }
 
 document.addEventListener('DOMContentLoaded',function(){
+  // Charge les voix dès que possible
+  loadVoices();
+  if(window.speechSynthesis.onvoiceschanged !== undefined){
+    window.speechSynthesis.onvoiceschanged = loadVoices;
+  }
   document.getElementById('btnStart').addEventListener('click',startDriving);
   document.getElementById('btnUnlock').addEventListener('click',unlockVoice);
   document.getElementById('btnStop').addEventListener('click',stopDriving);
@@ -277,6 +285,35 @@ document.addEventListener('DOMContentLoaded',function(){
 });
 
 // ── SETUP ──
+// ── CHARGEMENT DES VOIX ──
+function loadVoices(){
+  var vs = window.speechSynthesis.getVoices();
+  var sel = document.getElementById('voiceSelect');
+  // Garde toutes les voix fr + voix non-fr si pas de fr
+  var fr = vs.filter(function(v){return v.lang.startsWith('fr');});
+  var list = fr.length > 0 ? fr : vs;
+  if(list.length === 0) return;
+  sel.innerHTML = '';
+  list.forEach(function(v, i){
+    var opt = document.createElement('option');
+    opt.value = i;
+    opt.textContent = v.name + (v.localService ? ' ★' : '');
+    sel.appendChild(opt);
+  });
+  // Pré-sélectionne la meilleure voix (locale en premier)
+  var best = list.findIndex(function(v){return v.localService && v.lang==='fr-FR';});
+  if(best === -1) best = list.findIndex(function(v){return v.lang==='fr-FR';});
+  if(best !== -1) sel.selectedIndex = best;
+  S.voiceList = list;
+}
+
+function getSelectedVoice(){
+  var sel = document.getElementById('voiceSelect');
+  if(!S.voiceList || S.voiceList.length === 0) return null;
+  var idx = parseInt(sel.value);
+  return S.voiceList[idx] || S.voiceList[0];
+}
+
 function startDriving(){
   var name=document.getElementById('uname').value.trim();
   var key=document.getElementById('akey').value.trim();

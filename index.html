@@ -36,36 +36,30 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,'Helvetica
 .btn-red{background:var(--danger);color:#fff;border-radius:10px;font-size:11px;}
 .btn-ghost{background:transparent;color:var(--accent);border:1px solid var(--border);border-radius:10px;font-size:11px;}
 .btn-orange{background:var(--accent2);color:#fff;border-radius:10px;font-size:11px;}
-.btn-green{background:var(--success);color:#000;border-radius:10px;font-size:11px;}
 #micWarn{display:none;background:rgba(255,107,53,.12);border:1px solid rgba(255,107,53,.3);border-radius:10px;padding:10px;font-size:12px;color:var(--accent2);text-align:center;line-height:1.5;}
 #micWarn.show{display:block;}
 .voice-info{font-size:10px;color:var(--dim);text-align:center;padding:3px 0;}
-/* UNLOCK */
 #unlockScreen .big-icon{font-size:64px;text-align:center;}
 #unlockScreen .unlock-title{font-family:'Courier New',monospace;font-size:20px;font-weight:700;color:var(--accent);letter-spacing:3px;text-align:center;margin-top:8px;}
 #unlockScreen .unlock-sub{font-size:13px;color:var(--dim);text-align:center;line-height:1.7;margin-top:5px;}
-/* DRIVE */
 #driveScreen{padding:0;justify-content:flex-start;align-items:stretch;gap:0;overflow:hidden;}
 #driveScreen>*{max-width:100%;}
-.sbar{display:flex;align-items:center;justify-content:space-between;padding:11px 15px;border-bottom:1px solid var(--border);background:rgba(8,12,16,.97);flex-shrink:0;z-index:1;}
+.sbar{display:flex;align-items:center;justify-content:space-between;padding:11px 15px;border-bottom:1px solid var(--border);background:rgba(8,12,16,.97);flex-shrink:0;}
 .sname{font-family:'Courier New',monospace;font-size:11px;font-weight:700;color:var(--accent);letter-spacing:2px;}
 .sind{display:flex;align-items:center;gap:6px;font-size:10px;color:var(--dim);letter-spacing:1px;text-transform:uppercase;}
 .dot{width:7px;height:7px;border-radius:50%;animation:blink 2s infinite;}
 .dot-w{background:var(--accent);}.dot-a{background:var(--danger);animation-duration:.4s;}.dot-sp{background:var(--accent2);animation-duration:.8s;}.dot-ok{background:var(--success);animation-duration:1.5s;}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
-/* NAV BAR */
-.nav-bar{display:none;align-items:center;justify-content:space-between;padding:8px 14px;background:rgba(0,200,255,.06);border-bottom:1px solid rgba(0,200,255,.12);flex-shrink:0;}
+.nav-bar{display:none;align-items:center;justify-content:space-between;padding:8px 14px;background:rgba(0,200,255,.05);border-bottom:1px solid rgba(0,200,255,.1);flex-shrink:0;}
 .nav-bar.show{display:flex;}
 .nav-dest{font-size:11px;color:var(--accent);font-weight:600;flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .nav-info{font-size:10px;color:var(--dim);text-align:right;line-height:1.4;}
 .nav-eta{color:var(--accent2);font-weight:600;}
-/* MODE BANNER */
 .mode-banner{display:none;align-items:center;justify-content:center;padding:6px;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;flex-shrink:0;}
 .mode-banner.show{display:flex;}
 .mode-banner.alert-mode{background:rgba(255,45,85,.15);color:var(--danger);border-bottom:1px solid rgba(255,45,85,.2);}
 .mode-banner.chat-mode{background:rgba(48,209,88,.07);color:var(--success);border-bottom:1px solid rgba(48,209,88,.1);}
-.dmain{flex:1;display:flex;flex-direction:column;padding:11px;gap:9px;overflow:hidden;min-height:0;position:relative;z-index:1;}
-/* Timer */
+.dmain{flex:1;display:flex;flex-direction:column;padding:11px;gap:9px;overflow:hidden;min-height:0;}
 .tring-wrap{display:flex;justify-content:center;flex-shrink:0;}
 .tring-box{position:relative;width:90px;height:90px;}
 .tring-svg{width:90px;height:90px;transform:rotate(-90deg);}
@@ -75,7 +69,6 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,'Helvetica
 .tring-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;}
 .tnum{font-family:'Courier New',monospace;font-size:20px;font-weight:700;color:var(--accent);}
 .tlbl{font-size:7px;color:var(--dim);letter-spacing:2px;text-transform:uppercase;margin-top:1px;}
-/* Convo */
 .csec{flex:1;min-height:0;background:var(--surface);border:1px solid var(--border);border-radius:13px;padding:10px;display:flex;flex-direction:column;gap:6px;overflow:hidden;}
 .clbl{font-size:9px;color:var(--dim);letter-spacing:2px;text-transform:uppercase;flex-shrink:0;}
 .cscroll{flex:1;overflow-y:auto;display:flex;flex-direction:column;gap:6px;min-height:0;}
@@ -83,7 +76,7 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,'Helvetica
 .bbl{max-width:93%;padding:9px 12px;border-radius:12px;font-size:14px;line-height:1.5;}
 .bbl-sp{background:var(--surface2);border:1px solid var(--border);border-bottom-left-radius:3px;align-self:flex-start;}
 .bbl-us{background:rgba(0,200,255,.07);border:1px solid rgba(0,200,255,.13);border-bottom-right-radius:3px;align-self:flex-end;}
-.bbl-nav{background:rgba(0,200,255,.04);border:1px solid rgba(0,200,255,.2);border-radius:10px;align-self:stretch;max-width:100%;font-size:13px;}
+.bbl-nav{background:rgba(255,107,53,.06);border:1px solid rgba(255,107,53,.2);border-radius:10px;align-self:stretch;max-width:100%;font-size:13px;}
 .bn{font-size:9px;color:var(--accent);letter-spacing:1px;text-transform:uppercase;margin-bottom:2px;font-family:'Courier New',monospace;}
 .bn-nav{color:var(--accent2);}
 .spbar{display:none;align-items:center;gap:7px;padding:5px 9px;background:rgba(255,107,53,.07);border:1px solid rgba(255,107,53,.13);border-radius:20px;font-size:11px;color:var(--accent2);flex-shrink:0;}
@@ -92,7 +85,6 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,'Helvetica
 .wb{width:3px;border-radius:2px;background:var(--accent2);animation:wav .7s ease-in-out infinite;}
 .wb:nth-child(1){height:4px;animation-delay:0s}.wb:nth-child(2){height:8px;animation-delay:.1s}.wb:nth-child(3){height:14px;animation-delay:.2s}.wb:nth-child(4){height:8px;animation-delay:.3s}.wb:nth-child(5){height:4px;animation-delay:.4s}
 @keyframes wav{0%,100%{transform:scaleY(.3)}50%{transform:scaleY(1)}}
-/* Mic */
 .lsec{display:flex;flex-direction:column;align-items:center;gap:6px;flex-shrink:0;}
 .lbtn{width:58px;height:58px;border-radius:50%;background:rgba(0,200,255,.07);border:2px solid var(--accent);display:flex;align-items:center;justify-content:center;font-size:25px;cursor:pointer;}
 .lbtn.on{background:rgba(0,200,255,.22);box-shadow:0 0 0 7px rgba(0,200,255,.1);}
@@ -100,36 +92,33 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,'Helvetica
 .lbtn.alert-on{border-color:var(--danger);background:rgba(255,45,85,.13);}
 .lbtn:active{opacity:.7;}
 .lstatus{font-size:10px;color:var(--dim);letter-spacing:1px;text-transform:uppercase;text-align:center;}
-/* Bottom */
-.hint-bar{background:rgba(0,200,255,.04);border-top:1px solid var(--border);padding:6px 12px;font-size:10px;color:var(--dim);text-align:center;flex-shrink:0;line-height:1.5;}
-.bctrl{padding:6px 11px 14px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;flex-shrink:0;z-index:1;}
-/* Thinking */
+.hint-bar{background:rgba(0,200,255,.03);border-top:1px solid var(--border);padding:5px 12px;font-size:10px;color:var(--dim);text-align:center;flex-shrink:0;line-height:1.5;}
+.bctrl{padding:5px 11px 13px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;flex-shrink:0;}
 .thinking{display:flex;gap:5px;align-items:center;padding:9px 12px;align-self:flex-start;}
 .td{width:5px;height:5px;border-radius:50%;background:var(--dim);animation:th 1.1s ease-in-out infinite;}
 .td:nth-child(2){animation-delay:.2s}.td:nth-child(3){animation-delay:.4s}
 @keyframes th{0%,100%{opacity:.2;transform:scale(.8)}50%{opacity:1;transform:scale(1.3)}}
-/* Alert */
 #alertBox{display:none;position:fixed;inset:0;z-index:200;background:rgba(255,45,85,.1);align-items:center;justify-content:center;}
 #alertBox.on{display:flex;}
 .ainner{background:var(--surface);border:2px solid var(--danger);border-radius:18px;padding:24px 20px;text-align:center;max-width:280px;}
 .aemoji{font-size:40px;margin-bottom:7px;}
 .atitle{font-family:'Courier New',monospace;font-size:15px;color:var(--danger);letter-spacing:2px;margin-bottom:5px;}
 .atext{font-size:13px;color:var(--dim);margin-bottom:14px;line-height:1.5;}
-/* Nav screen */
+/* NAV SCREEN */
 #navScreen{padding:0;justify-content:flex-start;align-items:stretch;gap:0;overflow:hidden;}
 #navScreen>*{max-width:100%;}
 .nav-header{padding:14px 16px;border-bottom:1px solid var(--border);background:rgba(8,12,16,.97);display:flex;align-items:center;gap:12px;flex-shrink:0;}
 .nav-back{font-size:22px;cursor:pointer;color:var(--accent);}
 .nav-title{font-family:'Courier New',monospace;font-size:13px;font-weight:700;color:var(--accent);letter-spacing:2px;}
-.nav-body{flex:1;overflow-y:auto;padding:16px;}
-.nav-search-wrap{display:flex;gap:8px;margin-bottom:16px;}
+.nav-body{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:12px;}
+.nav-search-wrap{display:flex;gap:8px;}
 .nav-search-wrap input{flex:1;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:13px;color:var(--text);font-size:15px;outline:none;}
 .nav-search-wrap input:focus{border-color:var(--accent);}
-.nav-search-wrap button{background:var(--accent);color:#000;border:none;border-radius:10px;padding:13px 16px;font-weight:700;cursor:pointer;font-size:13px;white-space:nowrap;}
+.nav-search-wrap button{background:var(--accent);color:#000;border:none;border-radius:10px;padding:13px 16px;font-weight:700;cursor:pointer;font-size:13px;}
 .nav-results{display:flex;flex-direction:column;gap:8px;}
-.nav-result-item{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:13px;cursor:pointer;transition:border-color .2s;}
+.nav-result-item{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:13px;cursor:pointer;}
 .nav-result-item:active{border-color:var(--accent);}
-.nav-result-name{font-size:14px;font-weight:600;color:var(--text);}
+.nav-result-name{font-size:14px;font-weight:600;}
 .nav-result-addr{font-size:12px;color:var(--dim);margin-top:2px;}
 .nav-route-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:12px;}
 .nav-route-title{font-size:11px;color:var(--accent);letter-spacing:2px;text-transform:uppercase;}
@@ -139,14 +128,14 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,'Helvetica
 .nav-stat-lbl{font-size:10px;color:var(--dim);text-transform:uppercase;letter-spacing:1px;margin-top:2px;}
 .nav-pois{display:flex;flex-direction:column;gap:6px;}
 .nav-poi{background:var(--surface2);border-radius:9px;padding:10px 12px;display:flex;justify-content:space-between;align-items:center;}
-.nav-poi-name{font-size:13px;color:var(--text);}
+.nav-poi-name{font-size:13px;}
 .nav-poi-dist{font-size:11px;color:var(--accent2);font-weight:600;}
-.loading-msg{text-align:center;color:var(--dim);padding:30px;font-size:14px;}
+.loading-msg{text-align:center;color:var(--dim);padding:24px;font-size:14px;}
 </style>
 </head>
 <body>
 
-<!-- ══ SETUP ══ -->
+<!-- SETUP -->
 
 <div id="setupScreen" class="screen">
   <div><div class="logo"><span class="s1">SOMNO</span><span class="s2">PILOTE</span></div><div class="tagline">Ton copilote anti-somnolence</div></div>
@@ -154,7 +143,7 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,'Helvetica
     <div class="card-title">Configuration</div>
     <div class="fg"><label>Ton prénom</label><input type="text" id="uname" placeholder="Ex: Sophie" maxlength="20" autocomplete="off" autocorrect="off" autocapitalize="words"></div>
     <div class="fg"><label>Clé API Groq</label><input type="password" id="akey" placeholder="gsk_..." autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false"></div>
-    <div class="fg"><label>Clé OpenRouteService <span style="color:var(--dim);font-size:9px;">(optionnel — navigation)</span></label>
+    <div class="fg"><label>Clé OpenRouteService <span style="color:var(--dim);font-size:9px;">(optionnel)</span></label>
       <input type="password" id="orskey" placeholder="5b3ce3..." autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false">
     </div>
     <div class="fg">
@@ -173,7 +162,7 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,'Helvetica
   </div>
 </div>
 
-<!-- ══ UNLOCK ══ -->
+<!-- UNLOCK -->
 
 <div id="unlockScreen" class="screen hidden">
   <div class="big-icon">🚗</div>
@@ -181,16 +170,15 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,'Helvetica
   <button class="btn btn-blue" id="btnUnlock">🎙️ &nbsp;ACTIVER LA VOIX</button>
 </div>
 
-<!-- ══ DRIVE ══ -->
+<!-- DRIVE -->
 
 <div id="driveScreen" class="screen hidden">
   <div class="sbar">
     <div class="sname" id="sname">SOMNOPILOTE</div>
     <div class="sind"><div class="dot dot-w" id="sdot"></div><span id="stxt">EN ROUTE</span></div>
   </div>
-  <!-- Barre navigation active -->
   <div class="nav-bar" id="navBar">
-    <div>
+    <div style="flex:1;min-width:0;">
       <div class="nav-dest" id="navDest">—</div>
       <div style="font-size:9px;color:var(--dim);text-transform:uppercase;letter-spacing:1px;margin-top:1px;">Destination</div>
     </div>
@@ -223,7 +211,7 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,'Helvetica
       <div class="lstatus" id="lstatus">Appuyer pour répondre</div>
     </div>
   </div>
-  <div class="hint-bar">💡 <em>"pause"</em> · <em>"je somnole"</em> · <em>"où en est mon trajet ?"</em></div>
+  <div class="hint-bar">💡 <em>"pause 10 min"</em> · <em>"je somnole"</em> · <em>"combien il reste ?"</em></div>
   <div class="bctrl">
     <button class="btn btn-ghost" id="btnNav">🗺️ Trajet</button>
     <button class="btn btn-orange" id="btnSOS">🆘 Somnole</button>
@@ -231,7 +219,7 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,'Helvetica
   </div>
 </div>
 
-<!-- ══ NAV SCREEN ══ -->
+<!-- NAV SCREEN -->
 
 <div id="navScreen" class="screen hidden">
   <div class="nav-header">
@@ -247,13 +235,13 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,'Helvetica
   </div>
 </div>
 
-<!-- ══ ALERT ══ -->
+<!-- ALERT -->
 
 <div id="alertBox">
   <div class="ainner">
     <div class="aemoji">⚠️</div>
     <div class="atitle">RÉVEIL !</div>
-    <div class="atext">Tu n'as pas répondu.<br>Dis quelque chose ou touche l'écran.</div>
+    <div class="atext">Tu n'as pas répondu.<br>Dis quelque chose !</div>
     <button class="btn btn-blue" id="btnAwake" style="font-size:12px;padding:12px;">JE SUIS LÀ !</button>
   </div>
 </div>
@@ -279,49 +267,74 @@ var S={
   apiKey:'',orsKey:'',userName:'',
   iMs:7*60000,vMs:2*60000,
   nextAt:0,totSecs:0,
-  mt:null,ct:null,nrt:null,silTimer:null,gpsTimer:null,
-  audioCtx:null,
+  mt:null,ct:null,nrt:null,
+  silNode:null,silCtx:null,silTimer:null,  // wake lock audio
   listening:false,speaking:false,processing:false,
   rec:null,synth:window.speechSynthesis,
   hist:[],topics:[],voiceList:[],selectedVoiceIdx:0,
-  mode:'idle',  // idle | alert | free | checkin
-
+  // mode : 'idle' | 'checkin' | 'chat' | 'alert'
+  mode:'idle',
   // Navigation
   nav:{
-    active:false,
-    destName:'',
-    destCoords:null,   // [lon,lat]
-    routeData:null,    // données ORS complètes
-    distanceKm:0,
-    durationMin:0,
-    pois:[],           // points d'intérêt sur le trajet
-    lastPos:null,      // position GPS actuelle
-    remainingKm:0,
-    remainingMin:0,
-    lastNavAnnounce:0, // timestamp dernier annonce POI
+    active:false,destName:'',destCoords:null,
+    totalKm:0,totalMin:0,       // depuis ORS — fixes, basés sur limitations vitesse
+    departureTime:0,            // timestamp départ
+    pois:[],lastNavAnnounce:0,
+    gpsTimer:null,
+    remainingKm:0,remainingMin:0,
   }
 };
 
 // ══════════════════════════════════════
-// WAKE LOCK
+// WAKE LOCK — deux méthodes combinées
 // ══════════════════════════════════════
-function startSilence(){
+function startWakeLock(){
+  // Méthode 1 : Wake Lock API (fonctionne sur certains navigateurs)
+  if('wakeLock' in navigator){
+    navigator.wakeLock.request('screen').catch(function(){});
+  }
+  // Méthode 2 : AudioContext silence en boucle (fonctionne sur Safari iOS)
   try{
-    S.audioCtx=new(window.AudioContext||window.webkitAudioContext)();
-    function tick(){
-      if(!S.audioCtx)return;
-      var b=S.audioCtx.createBuffer(1,S.audioCtx.sampleRate*.1,S.audioCtx.sampleRate);
-      var src=S.audioCtx.createBufferSource();
-      src.buffer=b;src.connect(S.audioCtx.destination);src.start(0);
-      S.silTimer=setTimeout(tick,5000);
+    S.silCtx=new(window.AudioContext||window.webkitAudioContext)();
+    scheduleSilence();
+  }catch(e){console.warn('AudioContext:',e);}
+}
+
+function scheduleSilence(){
+  if(!S.silCtx)return;
+  try{
+    // Buffer silencieux de 0.5s
+    var buf=S.silCtx.createBuffer(1,S.silCtx.sampleRate*0.5,S.silCtx.sampleRate);
+    var src=S.silCtx.createBufferSource();
+    src.buffer=buf;
+    // Gain très faible mais non nul — iOS ne tue pas un vrai signal audio
+    var gain=S.silCtx.createGain();
+    gain.gain.value=0.001;
+    src.connect(gain);gain.connect(S.silCtx.destination);
+    src.start(0);
+    src.onended=function(){
+      // Rejoue toutes les 4s
+      S.silTimer=setTimeout(scheduleSilence,4000);
+    };
+  }catch(e){
+    // Si contexte suspendu, on le reprend
+    if(S.silCtx&&S.silCtx.state==='suspended'){
+      S.silCtx.resume().then(function(){S.silTimer=setTimeout(scheduleSilence,1000);});
     }
-    tick();
-  }catch(e){}
+  }
 }
-function stopSilence(){
+
+function stopWakeLock(){
   clearTimeout(S.silTimer);
-  if(S.audioCtx){try{S.audioCtx.close();}catch(e){}S.audioCtx=null;}
+  if(S.silCtx){try{S.silCtx.close();}catch(e){}S.silCtx=null;}
 }
+
+// Reprend l'AudioContext après une interruption (appel entrant, etc.)
+document.addEventListener('visibilitychange',function(){
+  if(document.visibilityState==='visible'&&S.silCtx&&S.silCtx.state==='suspended'){
+    S.silCtx.resume().then(function(){scheduleSilence();});
+  }
+});
 
 // ══════════════════════════════════════
 // VOIX
@@ -329,7 +342,7 @@ function stopSilence(){
 var voiceRetry=0;
 function loadVoices(){
   var all=S.synth.getVoices();
-  if(all.length===0){if(voiceRetry<20){voiceRetry++;setTimeout(loadVoices,300);}return;}
+  if(all.length===0){if(voiceRetry<25){voiceRetry++;setTimeout(loadVoices,300);}return;}
   var fr=all.filter(function(v){return v.lang.startsWith('fr');});
   S.voiceList=fr.length>0?fr:all;
   var sel=document.getElementById('voiceSelect');
@@ -355,7 +368,7 @@ function updateVoiceInfo(){
 }
 function getVoice(){
   var all=S.synth.getVoices();
-  if(all.length>0){var fr=all.filter(function(v){return v.lang.startsWith('fr');});S.voiceList=fr.length>0?fr:all;}
+  if(all.length>0){var fr=all.filter(function(v){return v.lang.startsWith('fr');});if(fr.length>0)S.voiceList=fr;else S.voiceList=all;}
   return S.voiceList[S.selectedVoiceIdx]||S.voiceList[0]||null;
 }
 
@@ -369,292 +382,222 @@ function show(id){
   document.getElementById(id).classList.remove('hidden');
 }
 
-// Recherche de lieu via ORS Geocoding
 function searchPlace(query){
   var results=document.getElementById('navResults');
-  results.innerHTML='<div class="loading-msg">🔍 Recherche en cours…</div>';
+  results.innerHTML='<div class="loading-msg">🔍 Recherche…</div>';
   fetch('https://api.openrouteservice.org/geocode/search?api_key='+S.orsKey+'&text='+encodeURIComponent(query)+'&size=5&lang=fr')
     .then(function(r){return r.json();})
     .then(function(d){
       results.innerHTML='';
-      if(!d.features||d.features.length===0){
-        results.innerHTML='<div class="loading-msg">Aucun résultat trouvé.</div>';
-        return;
-      }
+      if(!d.features||d.features.length===0){results.innerHTML='<div class="loading-msg">Aucun résultat.</div>';return;}
       d.features.forEach(function(f){
-        var div=document.createElement('div');
-        div.className='nav-result-item';
+        var div=document.createElement('div');div.className='nav-result-item';
         var name=f.properties.name||f.properties.label;
         var addr=f.properties.label||'';
         div.innerHTML='<div class="nav-result-name">'+esc(name)+'</div><div class="nav-result-addr">'+esc(addr)+'</div>';
-        div.addEventListener('click',function(){
-          selectDestination(f.properties.label||name, f.geometry.coordinates);
-        });
+        div.addEventListener('click',function(){selectDestination(f.properties.label||name,f.geometry.coordinates);});
         results.appendChild(div);
       });
     })
-    .catch(function(e){
-      results.innerHTML='<div class="loading-msg" style="color:var(--danger)">Erreur de recherche. Vérifie ta clé ORS.</div>';
-    });
+    .catch(function(){results.innerHTML='<div class="loading-msg" style="color:var(--danger)">Erreur. Vérifie ta clé ORS.</div>';});
 }
 
-// Calcule l'itinéraire + récupère les POIs
-function selectDestination(name, coords){
-  S.nav.destName=name;
-  S.nav.destCoords=coords;
-  document.getElementById('navResults').innerHTML='<div class="loading-msg">📍 Localisation GPS…</div>';
-
+function selectDestination(name,coords){
+  S.nav.destName=name;S.nav.destCoords=coords;
+  document.getElementById('navResults').innerHTML='<div class="loading-msg">📍 GPS…</div>';
   navigator.geolocation.getCurrentPosition(
-    function(pos){
-      var origin=[pos.coords.longitude, pos.coords.latitude];
-      S.nav.lastPos=pos;
-      calculateRoute(origin, coords, name);
-    },
-    function(){
-      document.getElementById('navResults').innerHTML='<div class="loading-msg" style="color:var(--danger)">GPS non disponible. Autorise la localisation dans Safari.</div>';
-    },
-    {enableHighAccuracy:true, timeout:10000}
+    function(pos){calculateRoute([pos.coords.longitude,pos.coords.latitude],coords,name);},
+    function(){document.getElementById('navResults').innerHTML='<div class="loading-msg" style="color:var(--danger)">GPS non disponible. Autorise la localisation.</div>';},
+    {enableHighAccuracy:true,timeout:10000}
   );
 }
 
-function calculateRoute(origin, dest, name){
-  var results=document.getElementById('navResults');
-  results.innerHTML='<div class="loading-msg">🗺️ Calcul de l\'itinéraire…</div>';
-
+function calculateRoute(origin,dest,name){
+  document.getElementById('navResults').innerHTML='<div class="loading-msg">🗺️ Calcul itinéraire…</div>';
   fetch('https://api.openrouteservice.org/v2/directions/driving-car/json',{
     method:'POST',
     headers:{'Authorization':S.orsKey,'Content-Type':'application/json','Accept':'application/json'},
-    body:JSON.stringify({
-      coordinates:[origin,dest],
-      language:'fr',
-      units:'km',
-      instructions:false
-    })
+    body:JSON.stringify({coordinates:[origin,dest],language:'fr',units:'km',instructions:false})
   })
   .then(function(r){return r.json();})
   .then(function(d){
     if(!d.routes||d.routes.length===0){
-      results.innerHTML='<div class="loading-msg" style="color:var(--danger)">Impossible de calculer l\'itinéraire.</div>';
+      document.getElementById('navResults').innerHTML='<div class="loading-msg" style="color:var(--danger)">Impossible de calculer l\'itinéraire.</div>';
       return;
     }
     var route=d.routes[0];
+    // ✅ Durée ORS = basée sur limitations de vitesse, pas sur la vitesse GPS
     var distKm=Math.round(route.summary.distance);
-    var durMin=Math.round(route.summary.duration/60);
-
-    S.nav.routeData=route;
-    S.nav.distanceKm=distKm;
-    S.nav.durationMin=durMin;
+    var durMin=Math.round(route.summary.duration/60);  // durée légale ORS
+    S.nav.totalKm=distKm;
+    S.nav.totalMin=durMin;
     S.nav.remainingKm=distKm;
     S.nav.remainingMin=durMin;
+    S.nav.departureTime=Date.now();
     S.nav.active=true;
-
-    // Recherche POIs (aires de repos, stations, restos) le long du trajet
-    searchPOIs(origin, dest, distKm, durMin, name, results);
+    // Cherche POIs
+    fetchPOIs(origin,dest,distKm,durMin,name);
   })
   .catch(function(e){
-    results.innerHTML='<div class="loading-msg" style="color:var(--danger)">Erreur itinéraire: '+e.message+'</div>';
+    document.getElementById('navResults').innerHTML='<div class="loading-msg" style="color:var(--danger)">Erreur réseau: '+esc(e.message)+'</div>';
   });
 }
 
-function searchPOIs(origin, dest, distKm, durMin, destName, results){
-  // Midpoint pour chercher des POIs au milieu du trajet
+function fetchPOIs(origin,dest,distKm,durMin,destName){
+  // Recherche POIs via Nominatim (OpenStreetMap, gratuit, sans clé)
+  // On cherche des stations et restos à mi-chemin
   var midLon=(origin[0]+dest[0])/2;
   var midLat=(origin[1]+dest[1])/2;
-  var radiusM=Math.min(distKm*500, 50000); // rayon adapté à la distance
+  var radDeg=Math.min(distKm/111*0.4,0.5);
 
-  // Recherche stations-service et restaurants
-  var categories='560,561,562,621'; // fuel, restaurant, fast food, rest area
-  fetch('https://api.openrouteservice.org/pois?api_key='+S.orsKey,{
-    method:'POST',
-    headers:{'Content-Type':'application/json'},
-    body:JSON.stringify({
-      request:'pois',
-      geometry:{
-        bbox:[[Math.min(origin[0],dest[0])-.1, Math.min(origin[1],dest[1])-.1],
-               [Math.max(origin[0],dest[0])+.1, Math.max(origin[1],dest[1])+.1]],
-        geojson:{type:'Point',coordinates:[midLon,midLat]},
-        buffer:radiusM
-      },
-      filters:{category_ids:{fuel:{},fast_food:{},restaurant:{},rest_area:{}}},
-      limit:10
-    })
-  })
-  .then(function(r){return r.json();})
-  .then(function(d){
-    var pois=[];
-    if(d.features){
-      d.features.forEach(function(f){
-        var name=f.properties&&f.properties.osm_tags&&f.properties.osm_tags.name;
-        if(!name)return;
-        var cat=f.properties.category_ids;
-        var type=cat&&(cat[560]||cat[561]||cat[562])?'⛽ Station':cat&&cat[621]?'🅿️ Aire':'🍔 Resto';
-        // Estime distance depuis origine
-        var dx=f.geometry.coordinates[0]-origin[0];
-        var dy=f.geometry.coordinates[1]-origin[1];
-        var approxKm=Math.round(Math.sqrt(dx*dx+dy*dy)*111);
-        pois.push({name:name,type:type,distKm:approxKm});
-      });
-      pois.sort(function(a,b){return a.distKm-b.distKm;});
-      S.nav.pois=pois.slice(0,6);
-    }
-    showRouteCard(destName, distKm, durMin, results);
-  })
-  .catch(function(){
-    S.nav.pois=[];
-    showRouteCard(destName, distKm, durMin, results);
+  var queries=[
+    {url:'https://nominatim.openstreetmap.org/search?format=json&limit=4&q=station+service&bounded=1&viewbox='+
+      (midLon-radDeg)+','+(midLat+radDeg)+','+(midLon+radDeg)+','+(midLat-radDeg),type:'⛽ Station'},
+    {url:'https://nominatim.openstreetmap.org/search?format=json&limit=3&q=aire+autoroute&bounded=1&viewbox='+
+      (midLon-radDeg)+','+(midLat+radDeg)+','+(midLon+radDeg)+','+(midLat-radDeg),type:'🅿️ Aire'},
+  ];
+
+  var pois=[];var done=0;
+  queries.forEach(function(q){
+    fetch(q.url,{headers:{'User-Agent':'Somnopilote/1.0'}})
+      .then(function(r){return r.json();})
+      .then(function(results){
+        results.forEach(function(r){
+          var dx=parseFloat(r.lon)-origin[0];
+          var dy=parseFloat(r.lat)-origin[1];
+          var approxKm=Math.round(Math.sqrt(dx*dx+dy*dy)*111);
+          if(approxKm>5&&approxKm<distKm)pois.push({name:r.display_name.split(',')[0],type:q.type,distKm:approxKm,announced:false});
+        });
+        done++;if(done===queries.length){
+          pois.sort(function(a,b){return a.distKm-b.distKm;});
+          S.nav.pois=pois.slice(0,5);
+          showRouteCard(destName,distKm,durMin);
+        }
+      })
+      .catch(function(){done++;if(done===queries.length)showRouteCard(destName,distKm,durMin);});
   });
 }
 
-function showRouteCard(destName, distKm, durMin, results){
+function showRouteCard(destName,distKm,durMin){
+  // ETA basée sur durée ORS (limitations vitesse) + heure actuelle
   var eta=new Date(Date.now()+durMin*60000);
   var etaStr=eta.getHours().toString().padStart(2,'0')+':'+eta.getMinutes().toString().padStart(2,'0');
-  var h=Math.floor(durMin/60), m=durMin%60;
-  var durStr=h>0?h+'h'+m.toString().padStart(2,'0'):''+m+' min';
+  var h=Math.floor(durMin/60),m=durMin%60;
+  var durStr=h>0?h+'h'+(m>0?m.toString().padStart(2,'0'):''):m+' min';
 
   var poisHtml='';
   if(S.nav.pois.length>0){
-    poisHtml='<div style="font-size:10px;color:var(--dim);letter-spacing:1px;text-transform:uppercase;margin-top:4px;margin-bottom:6px;">Sur le trajet</div>';
+    poisHtml='<div style="font-size:10px;color:var(--dim);letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;">Sur le trajet</div>';
     S.nav.pois.forEach(function(p){
       poisHtml+='<div class="nav-poi"><div class="nav-poi-name">'+p.type+' '+esc(p.name)+'</div><div class="nav-poi-dist">~'+p.distKm+' km</div></div>';
     });
   } else {
-    poisHtml='<div style="font-size:12px;color:var(--dim);text-align:center;padding:8px;">Aucun arrêt trouvé sur ce trajet.</div>';
+    poisHtml='<div style="font-size:12px;color:var(--dim);text-align:center;padding:6px;">Pas d\'arrêts trouvés sur ce trajet.</div>';
   }
 
-  results.innerHTML='<div class="nav-route-card">'+
+  document.getElementById('navResults').innerHTML=
+    '<div class="nav-route-card">'+
     '<div class="nav-route-title">📍 '+esc(destName)+'</div>'+
     '<div class="nav-stats">'+
-      '<div class="nav-stat"><div class="nav-stat-val">'+distKm+'</div><div class="nav-stat-lbl">Kilomètres</div></div>'+
+      '<div class="nav-stat"><div class="nav-stat-val">'+distKm+'</div><div class="nav-stat-lbl">km</div></div>'+
       '<div class="nav-stat"><div class="nav-stat-val">'+durStr+'</div><div class="nav-stat-lbl">Durée</div></div>'+
-      '<div class="nav-stat"><div class="nav-stat-val">'+etaStr+'</div><div class="nav-stat-lbl">Arrivée estimée</div></div>'+
-      '<div class="nav-stat"><div class="nav-stat-val">'+S.nav.pois.length+'</div><div class="nav-stat-lbl">Arrêts trouvés</div></div>'+
+      '<div class="nav-stat"><div class="nav-stat-val">'+etaStr+'</div><div class="nav-stat-lbl">Arrivée</div></div>'+
+      '<div class="nav-stat"><div class="nav-stat-val">'+S.nav.pois.length+'</div><div class="nav-stat-lbl">Arrêts</div></div>'+
     '</div>'+
     '<div class="nav-pois">'+poisHtml+'</div>'+
-    '<button class="btn btn-blue" id="btnStartNav" style="margin-top:4px;">🚗 Lancer la navigation</button>'+
-  '</div>';
+    '<button class="btn btn-blue" id="btnStartNav" style="margin-top:4px;">🚗 Démarrer la navigation</button>'+
+    '</div>';
 
-  document.getElementById('btnStartNav').addEventListener('click',function(){
-    activateNav(destName,distKm,durMin);
-  });
+  document.getElementById('btnStartNav').addEventListener('click',function(){activateNav(destName,distKm,durMin);});
 }
 
 function activateNav(destName,distKm,durMin){
-  // Met à jour la barre nav dans l'écran de conduite
   var eta=new Date(Date.now()+durMin*60000);
   var etaStr=eta.getHours().toString().padStart(2,'0')+':'+eta.getMinutes().toString().padStart(2,'0');
   var h=Math.floor(durMin/60),m=durMin%60;
-  var durStr=h>0?h+'h'+m+'min':m+' min';
+  var durStr=h>0?h+'h'+(m>0?m.toString().padStart(2,'0'):''):m+' min';
 
   document.getElementById('navDest').textContent=destName;
   document.getElementById('navEta').textContent=etaStr;
   document.getElementById('navDist').textContent=distKm+' km · '+durStr;
   document.getElementById('navBar').classList.add('show');
 
-  // Démarre le suivi GPS
-  startGPSTracking();
-
+  // Mise à jour périodique basée sur le temps écoulé (pas la vitesse GPS)
+  startNavTracking();
   show('driveScreen');
 
-  // Annonce vocale
   var h2=Math.floor(durMin/60),m2=durMin%60;
   var durVocal=h2>0?h2+' heure'+(h2>1?'s':'')+' et '+m2+' minutes':m2+' minutes';
-  var msg='Itinéraire vers '+destName+' chargé. '+distKm+' kilomètres, environ '+durVocal+'. ';
-  if(S.nav.pois.length>0){
-    var first=S.nav.pois[0];
-    msg+=first.type+' '+first.name+' dans environ '+first.distKm+' kilomètres.';
-  }
-  addMsg('nav',msg);
-  speak(msg,null);
+  var msg='Itinéraire vers '+destName+' — '+distKm+' km, environ '+durVocal+'. Arrivée estimée à '+etaStr+'.';
+  if(S.nav.pois.length>0){msg+=' Premier arrêt : '+S.nav.pois[0].type+' '+S.nav.pois[0].name+' vers '+S.nav.pois[0].distKm+' km.';}
+  addMsg('nav',msg);speak(msg,null);
 }
 
-// Suivi GPS temps réel
-function startGPSTracking(){
-  if(S.gpsTimer)clearInterval(S.gpsTimer);
-  S.gpsTimer=setInterval(function(){
-    navigator.geolocation.getCurrentPosition(function(pos){
-      S.nav.lastPos=pos;
-      updateRemainingRoute(pos);
-      checkPOIAnnouncement(pos);
-    },null,{enableHighAccuracy:true,timeout:8000});
-  },30000); // toutes les 30s
+function startNavTracking(){
+  if(S.nav.gpsTimer)clearInterval(S.nav.gpsTimer);
+  S.nav.gpsTimer=setInterval(function(){
+    // ✅ Calcul du temps restant basé sur temps écoulé + durée ORS totale
+    // → stable, pas affecté par la vitesse instantanée
+    var elapsed=Math.floor((Date.now()-S.nav.departureTime)/60000); // minutes écoulées
+    S.nav.remainingMin=Math.max(0,S.nav.totalMin-elapsed);
+    // Distance restante = proportion du temps restant
+    S.nav.remainingKm=Math.round(S.nav.totalKm*(S.nav.remainingMin/S.nav.totalMin));
+
+    var eta=new Date(Date.now()+S.nav.remainingMin*60000);
+    var etaStr=eta.getHours().toString().padStart(2,'0')+':'+eta.getMinutes().toString().padStart(2,'0');
+    var h=Math.floor(S.nav.remainingMin/60),m=S.nav.remainingMin%60;
+    var durStr=h>0?h+'h'+(m>0?m.toString().padStart(2,'0'):''):m+' min';
+    document.getElementById('navEta').textContent=etaStr;
+    document.getElementById('navDist').textContent=S.nav.remainingKm+' km · '+durStr;
+
+    // Annonce POI si on approche
+    checkPOI();
+  },60000); // toutes les minutes
 }
 
-function updateRemainingRoute(pos){
-  if(!S.nav.destCoords)return;
-  var dx=S.nav.destCoords[0]-pos.coords.longitude;
-  var dy=S.nav.destCoords[1]-pos.coords.latitude;
-  var distKm=Math.round(Math.sqrt(dx*dx+dy*dy)*111);
-  S.nav.remainingKm=distKm;
-  var speedKmh=pos.coords.speed?(pos.coords.speed*3.6):80;
-  S.nav.remainingMin=Math.round(distKm/(speedKmh/60));
-  // Met à jour barre nav
-  var eta=new Date(Date.now()+S.nav.remainingMin*60000);
-  var etaStr=eta.getHours().toString().padStart(2,'0')+':'+eta.getMinutes().toString().padStart(2,'0');
-  var h=Math.floor(S.nav.remainingMin/60),m=S.nav.remainingMin%60;
-  document.getElementById('navEta').textContent=etaStr;
-  document.getElementById('navDist').textContent=distKm+' km · '+(h>0?h+'h'+m.toString().padStart(2,'0'):m+' min');
-}
-
-// Annonce automatique des POIs proches
-function checkPOIAnnouncement(pos){
-  if(!S.nav.pois||S.nav.pois.length===0)return;
+function checkPOI(){
+  if(!S.nav.pois.length)return;
   var now=Date.now();
-  if(now-S.nav.lastNavAnnounce<300000)return; // max 1 annonce / 5 min
-  var nearPoi=null;
+  if(now-S.nav.lastNavAnnounce<300000)return;
   S.nav.pois.forEach(function(p){
-    if(!p.announced&&p.distKm-S.nav.remainingKm<=15&&p.distKm-S.nav.remainingKm>=-5){
-      nearPoi=p;
+    if(!p.announced&&Math.abs(p.distKm-S.nav.remainingKm)<15){
+      p.announced=true;S.nav.lastNavAnnounce=now;
+      var msg=p.type+' '+p.name+' dans environ 10 km — bonne occasion de faire une pause si tu en as besoin.';
+      addMsg('nav',msg);speak(msg,null);
     }
   });
-  if(nearPoi){
-    nearPoi.announced=true;
-    S.nav.lastNavAnnounce=now;
-    var msg=nearPoi.type+' '+nearPoi.name+' dans environ 10 kilomètres si tu veux faire une pause.';
-    addMsg('nav',msg);
-    speak(msg,null);
-  }
 }
 
-// Réponse aux questions de navigation vocales
-function handleNavQuestion(transcript){
-  var t=transcript.toLowerCase();
+function getNavAnswer(t){
   var nav=S.nav;
-
-  // Combien reste-t-il ?
+  if(!nav.active)return null;
   if(/(reste|restant|encore|loin|distance|kilomètre)/.test(t)){
     var h=Math.floor(nav.remainingMin/60),m=nav.remainingMin%60;
-    var durStr=h>0?h+' heure'+(h>1?'s':'')+' et '+m+' minutes':m+' minutes';
-    return 'Il te reste environ '+nav.remainingKm+' kilomètres, soit '+durStr+'. Tu arrives vers '+getEtaStr(nav.remainingMin)+'.';
+    var dur=h>0?h+'h'+m+'min':m+' min';
+    return 'Il reste environ '+nav.remainingKm+' km, soit '+dur+'. Arrivée vers '+getEta(nav.remainingMin)+'.';
   }
-  // Arrivée ?
   if(/(arriv|eta|heure)/.test(t)){
-    return 'Tu arrives estimé à '+getEtaStr(nav.remainingMin)+', dans environ '+nav.remainingMin+' minutes.';
+    return 'Arrivée estimée à '+getEta(nav.remainingMin)+', dans '+nav.remainingMin+' minutes.';
   }
-  // Arrêts / POIs ?
-  if(/(arrêt|pause|stop|station|aire|manger|boire|carburant|essence|resto|toilette)/.test(t)){
-    if(nav.pois.length===0)return 'Je n\'ai pas trouvé d\'arrêts référencés sur ce trajet.';
+  if(/(arrêt|pause|station|aire|manger|essence|resto|sortie|toilette)/.test(t)){
+    if(!nav.pois.length)return 'Je n\'ai pas trouvé d\'arrêts référencés sur ce trajet.';
     var resp='Sur ton trajet : ';
-    var upcoming=nav.pois.filter(function(p){return p.distKm>=nav.remainingKm-10;}).slice(0,3);
-    if(upcoming.length===0)upcoming=nav.pois.slice(0,3);
-    upcoming.forEach(function(p,i){
-      resp+=(i>0?', ':'')+p.type+' '+p.name+' ('+p.distKm+' km)';
-    });
+    nav.pois.slice(0,3).forEach(function(p,i){resp+=(i?', ':'')+p.type+' '+p.name+' (~'+p.distKm+' km)';});
     return resp+'.';
   }
-  // Bouchons ?
-  if(/(bouchon|trafic|embouteillage|circulation)/.test(t)){
-    return 'Je n\'ai pas accès aux données trafic temps réel pour l\'instant. Je te conseille de vérifier Waze ou Apple Plans.';
+  if(/(bouchon|trafic|embouteillage)/.test(t)){
+    return 'Je n\'ai pas le trafic temps réel. Jette un œil à Waze ou Apple Plans si tu peux.';
   }
-  return null; // pas une question de nav
+  return null;
 }
 
-function getEtaStr(remainingMin){
-  var eta=new Date(Date.now()+remainingMin*60000);
-  return eta.getHours().toString().padStart(2,'0')+':'+eta.getMinutes().toString().padStart(2,'0');
+function getEta(remainMin){
+  var e=new Date(Date.now()+remainMin*60000);
+  return e.getHours().toString().padStart(2,'0')+':'+e.getMinutes().toString().padStart(2,'0');
 }
 
 // ══════════════════════════════════════
-// INIT & BINDINGS
+// INIT BINDINGS
 // ══════════════════════════════════════
 document.addEventListener('DOMContentLoaded',function(){
   S.synth.onvoiceschanged=loadVoices;
@@ -664,16 +607,15 @@ document.addEventListener('DOMContentLoaded',function(){
   document.getElementById('btnUnlock').addEventListener('click',unlockVoice);
   document.getElementById('btnStop').addEventListener('click',stopDriving);
   document.getElementById('lbtn').addEventListener('click',toggleListen);
-  document.getElementById('btnAwake').addEventListener('click',function(){dismissAlert();startListen();});
+  document.getElementById('btnAwake').addEventListener('click',function(){dismissAlert();setTimeout(startListen,300);});
   document.getElementById('btnSOS').addEventListener('click',triggerSOS);
   document.getElementById('btnNav').addEventListener('click',function(){
-    if(!S.orsKey){alert('Entre ta clé OpenRouteService dans la configuration.');return;}
+    if(!S.orsKey){alert('Entre ta clé OpenRouteService dans la configuration pour utiliser la navigation.');return;}
     show('navScreen');
   });
   document.getElementById('btnNavBack').addEventListener('click',function(){show('driveScreen');});
   document.getElementById('btnNavSearch').addEventListener('click',function(){
-    var q=document.getElementById('navInput').value.trim();
-    if(q)searchPlace(q);
+    var q=document.getElementById('navInput').value.trim();if(q)searchPlace(q);
   });
   document.getElementById('navInput').addEventListener('keydown',function(e){
     if(e.key==='Enter'){var q=this.value.trim();if(q)searchPlace(q);}
@@ -695,23 +637,25 @@ function startDriving(){
 }
 
 function unlockVoice(){
+  // Déblocage audio Safari — utterance muette au tap
   var u=new SpeechSynthesisUtterance(' ');u.volume=0.01;u.rate=10;
   var v=getVoice();if(v)u.voice=v;
   S.synth.speak(u);
-  startSilence();
+  // Démarre le wake lock après le tap
+  startWakeLock();
   show('driveScreen');
   initMic();
 }
 
 function stopDriving(){
   if(!confirm('Arrêter Somnopilote ?'))return;
-  clearAll();S.synth.cancel();stopSilence();
-  if(S.gpsTimer)clearInterval(S.gpsTimer);
+  clearAll();S.synth.cancel();stopWakeLock();
+  if(S.nav.gpsTimer)clearInterval(S.nav.gpsTimer);
   if(S.rec)try{S.rec.stop();}catch(e){}
   document.getElementById('cscroll').innerHTML='';
   document.getElementById('navBar').classList.remove('show');
   S.hist=[];S.topics=[];S.mode='idle';
-  S.nav={active:false,destName:'',destCoords:null,routeData:null,distanceKm:0,durationMin:0,pois:[],lastPos:null,remainingKm:0,remainingMin:0,lastNavAnnounce:0};
+  S.nav={active:false,destName:'',destCoords:null,totalKm:0,totalMin:0,departureTime:0,pois:[],lastNavAnnounce:0,gpsTimer:null,remainingKm:0,remainingMin:0};
   hideBanner();show('setupScreen');
 }
 
@@ -728,12 +672,14 @@ function setupRec(){
   if(!SR){addMsg('sp','⚠️ Utilise Safari sur iPhone.');return;}
   S.rec=new SR();S.rec.lang='fr-FR';S.rec.continuous=false;S.rec.interimResults=false;
   S.rec.onresult=function(e){stopListen();handleSpeech(e.results[0][0].transcript);};
-  S.rec.onerror=function(e){stopListen();};
+  S.rec.onerror=function(e){stopListen();if(e.error==='not-allowed')addMsg('sp','Micro refusé — Réglages → Safari → Micro.');};
   S.rec.onend=function(){if(S.listening)stopListen();};
 }
 function toggleListen(){if(S.speaking||S.processing)return;S.listening?stopListen():startListen();}
 function startListen(){
   if(!S.rec){setupRec();if(!S.rec)return;}
+  // Reprend AudioContext si suspendu (Safari le suspend parfois)
+  if(S.silCtx&&S.silCtx.state==='suspended')S.silCtx.resume();
   S.listening=true;clearNRT();
   var btn=document.getElementById('lbtn');btn.classList.remove('alert-on');btn.classList.add('on');
   if(S.mode==='alert')btn.classList.add('alert-on');
@@ -757,29 +703,31 @@ function speak(text,cb){
   if(voice){u.voice=voice;u.lang=voice.lang;}else{u.lang='fr-FR';}
   u.rate=0.9;u.pitch=1.05;u.volume=1.0;
   S.speaking=true;
-  document.getElementById('spbar').classList.add('on');
-  setStatus('sp','PARLE');
+  document.getElementById('spbar').classList.add('on');setStatus('sp','PARLE');
   u.onend=u.onerror=function(){endSpeak(cb);};
   S.synth.speak(u);
+  // Fix pause Safari
   var fix=setInterval(function(){if(!S.speaking){clearInterval(fix);return;}if(S.synth.paused)S.synth.resume();},1500);
+  // Reprend aussi l'AudioContext si suspendu pendant la parole
+  if(S.silCtx&&S.silCtx.state==='suspended')S.silCtx.resume();
 }
 function endSpeak(cb){
   S.speaking=false;
-  document.getElementById('spbar').classList.remove('on');
-  setStatus('w','EN ROUTE');
+  document.getElementById('spbar').classList.remove('on');setStatus('w','EN ROUTE');
   if(cb)cb();
 }
 
 // ══════════════════════════════════════
 // TIMER
 // ══════════════════════════════════════
-function schedule(customDelay){
+function schedule(customMs){
   clearAll();
-  var d=customDelay||Math.max(60000,S.iMs+(Math.random()*2-1)*S.vMs);
+  var d=customMs||Math.max(60000,S.iMs+(Math.random()*2-1)*S.vMs);
   S.totSecs=Math.floor(d/1000);S.nextAt=Date.now()+d;
   S.mt=setTimeout(doCheckin,d);
   S.mode='idle';hideBanner();
   document.getElementById('tlbl').textContent='Prochain';
+  document.getElementById('tring').classList.remove('urgent');
   startCD();
 }
 function startCD(){
@@ -795,58 +743,85 @@ function startCD(){
   tick();S.ct=setInterval(tick,1000);
 }
 function clearAll(){clearTimeout(S.mt);clearInterval(S.ct);clearNRT();}
-function startNRT(d){S.nrt=setTimeout(function(){document.getElementById('alertBox').classList.add('on');speak(S.userName+'! Tu es là?');},d||28000);}
+function startNRT(d){
+  S.nrt=setTimeout(function(){
+    document.getElementById('alertBox').classList.add('on');
+    speak(S.userName+'! Tu es là? Réponds-moi!');
+  },d||28000);
+}
 function clearNRT(){clearTimeout(S.nrt);dismissAlert();}
 function dismissAlert(){document.getElementById('alertBox').classList.remove('on');}
 function showBanner(t,cls){var b=document.getElementById('modeBanner');b.textContent=t;b.className='mode-banner show '+cls;}
 function hideBanner(){document.getElementById('modeBanner').className='mode-banner';}
 
-// ══════════════════════════════════════
+// ══════════════════════════════════════════════════════
 // CONVERSATION
-// ══════════════════════════════════════
-var SYS='Tu es Somnopilote, copilote et ami de {NAME} sur la route. Elle a de l\'hypersomnie.\n'+
-'STYLE : parle comme un ami proche en voiture. Naturel, chaleureux, parfois drôle. Pas de "Super!", "Génial!", "Absolument!".\n'+
-'Tu réagis vraiment à ce qu\'elle dit. Tu rebondis. Tu poses des questions ouvertes.\n'+
-'Si elle mentionne la navigation ou la route, tu peux intégrer ces infos : {NAV_CONTEXT}.\n'+
-'LONGUEUR : 1-3 phrases max. Elle conduit.\nLANGUE : français, tutoiement.';
+// ══════════════════════════════════════════════════════
+var SYS=
+'Tu es Somnopilote, le copilote et ami de {NAME} sur la route. Elle souffre d\'hypersomnie.\n'+
+'STYLE : tu parles comme un ami proche et naturel en voiture. Chaleureux, spontané, parfois drôle.\n'+
+'Jamais "Super!", "Génial!", "Absolument!", "Bien sûr!" — ces formules sont interdites.\n'+
+'Tu réagis VRAIMENT à ce qu\'elle dit. Si elle parle d\'une glace, rebondis sur la glace.\n'+
+'Si elle dit "on change de sujet" tu changes. Si elle dit "stop" tu arrêtes et reprends plus tard.\n'+
+'Tu proposes naturellement quiz, anecdotes, questions, sujets — sans les annoncer comme un menu.\n'+
+'CONTEXTE NAV: {NAV}\n'+
+'LONGUEUR : 1 à 3 phrases max. Elle conduit.\n'+
+'LANGUE : français, tutoiement.';
 
 function sysP(){
-  var navCtx='Pas de navigation active.';
+  var nav='Pas de navigation active.';
   if(S.nav.active&&S.nav.destName){
-    navCtx='En route vers '+S.nav.destName+'. Il reste environ '+S.nav.remainingKm+' km ('+S.nav.remainingMin+' min). Arrivée estimée: '+getEtaStr(S.nav.remainingMin)+'.';
-    if(S.nav.pois.length>0){
-      navCtx+=' Prochains arrêts: '+S.nav.pois.filter(function(p){return!p.announced;}).slice(0,2).map(function(p){return p.type+' '+p.name+' ('+p.distKm+' km)';}).join(', ')+'.';}
+    nav='En route vers '+S.nav.destName+'. Reste: '+S.nav.remainingKm+' km / '+S.nav.remainingMin+' min. Arrivée: '+getEta(S.nav.remainingMin)+'.';
+    if(S.nav.pois.length)nav+=' Arrêts: '+S.nav.pois.filter(function(p){return!p.announced;}).slice(0,2).map(function(p){return p.type+' '+p.name+' ('+p.distKm+' km)';}).join(', ')+'.';
   }
-  return SYS.replace('{NAME}',S.userName).replace('{NAV_CONTEXT}',navCtx);
+  return SYS.replace('{NAME}',S.userName).replace('{NAV}',nav);
 }
 
 function greet(){
-  callGroq('Présente-toi brièvement à '+S.userName+' (2 phrases max). Tu es son copilote anti-somnolence et ami de route. Décontracté, pas solennel.',
+  callGroq('Présente-toi à '+S.userName+' en 2 phrases. Tu es son copilote anti-somnolence et ami de route. Ton décontracté, direct.',
     function(t){addMsg('sp',t);speak(t,function(){schedule();});});
 }
+
+// Check-in varié et naturel
+var checkinVariants=[
+  function(name){return 'Fais un check-in naturel à '+name+'. Demande-lui ce qu\'elle voit autour d\'elle sur la route. Spontané, 1 phrase.';},
+  function(name){return 'Check-in avec '+name+'. Demande-lui ce qu\'elle pense à quelque chose — n\'importe quoi. 1 phrase naturelle.';},
+  function(name){return 'Check-in avec '+name+'. Demande-lui comment elle se sent physiquement. Sois direct et décontracté. 1 phrase.';},
+  function(name){return 'Check-in avec '+name+'. Parle-lui de la météo qu\'elle voit ou de la route. Naturel. 1 phrase.';},
+  function(name){return 'Check-in avec '+name+'. Pose-lui une question légère sur sa journée ou son trajet. 1 phrase.';},
+  function(name){return 'Check-in avec '+name+'. Demande si elle a mis de la musique ou ce qu\'elle écoute. Naturel.';},
+];
+var checkinIdx=0;
 
 function doCheckin(){
   S.mode='checkin';clearInterval(S.ct);
   document.getElementById('tnum').textContent='?';setStatus('a','CHECK-IN');
-  // Checkin qui peut intégrer la nav
-  var navHint='';
-  if(S.nav.active&&S.nav.remainingKm>0){
-    navHint=' Tu peux aussi mentionner qu\'il reste '+S.nav.remainingKm+' km ou proposer un arrêt si pertinent.';
+  var prompt=checkinVariants[checkinIdx%checkinVariants.length](S.userName);
+  checkinIdx++;
+  if(S.nav.active&&S.nav.remainingMin>0&&Math.random()>0.6){
+    prompt='Fais un check-in naturel à '+S.userName+' en mentionnant qu\'il reste '+S.nav.remainingKm+' km. Sois naturel.';
   }
-  callGroq('Fais un check-in naturel et varié à '+S.userName+'. Question ouverte, pas binaire. '+
-    'Varie : ce qu\'elle voit, ressent, pense, a mangé, musique... Sois curieux comme un ami.'+navHint,
-    function(t){addMsg('sp',t);speak(t,function(){startNRT(35000);setTimeout(startListen,400);});});
+  callGroq(prompt,function(t){addMsg('sp',t);speak(t,function(){startNRT(35000);setTimeout(startListen,400);});});
 }
 
-function detectIntent(transcript){
-  var t=transcript.toLowerCase();
-  if(/(pause|stop|ça va|je vais bien|je suis (bien|réveillée?|ok)|c'est bon|tranquille)/.test(t)&&S.mode==='alert'){
+// Détection intentions vocales
+function detectIntent(t){
+  t=t.toLowerCase();
+  // Pause explicite
+  if(/(pause|stop|laisse.moi|tranquille|plus tard|reviens|laisse tomber)/.test(t)){
     var min=t.match(/(\d+)\s*min/);return{type:'pause',minutes:min?parseInt(min[1]):10};
   }
-  if(/(somnol|m'endors|je dors|fatigu|endorm|pas bien|aide|sommeil|peine)/.test(t))return{type:'sleepy'};
-  var cb=t.match(/reviens? (dans|en) (\d+)/);if(cb)return{type:'pause',minutes:parseInt(cb[2])};
-  // Question navigation
-  if(S.nav.active&&/(reste|restant|encore|loin|arrêt|pause|station|aire|manger|essence|arrivée|eta|bouchon|trafic|kilomètre)/.test(t))return{type:'nav'};
+  // Somnolence
+  if(/(somnol|m'endors|je dors|fatigu|endorm|pas bien|sommeil|peine|yeux.lourd|aide)/.test(t))return{type:'sleepy'};
+  // Question nav
+  if(S.nav.active&&/(reste|km|kilomètre|arrêt|pause|station|aire|manger|essence|arrivée|eta|bouchon|trajet|route|loin)/.test(t))return{type:'nav'};
+  // Positif / négatif basique pour check-in
+  if(S.mode==='checkin'){
+    var ok=/(oui|ça va|bien|super|top|parfait|nickel|génial|cool)/.test(t);
+    var nok=/(non|pas très|moyen|bof|fatigue|mal|difficile|dur)/.test(t);
+    if(ok)return{type:'ok'};
+    if(nok)return{type:'tired'};
+  }
   return{type:'normal'};
 }
 
@@ -858,39 +833,59 @@ function handleSpeech(transcript){
   var th=addThinking();
   var intent=detectIntent(transcript);
 
-  // Pause vocale en mode alerte
+  // Pause vocale
   if(intent.type==='pause'){
     th.remove();S.processing=false;document.getElementById('lbtn').classList.remove('proc');
     var mins=intent.minutes;
-    var msg='Ok, je te laisse '+mins+' minutes. Je repasse après.';
+    var msg='Ok, je te laisse tranquille '+mins+' minutes. Je reviens après.';
     addMsg('sp',msg);speak(msg,function(){schedule(mins*60000);});return;
   }
-  // Somnolence
+  // Somnolence détectée
   if(intent.type==='sleepy'&&S.mode!=='alert'){
     th.remove();S.processing=false;document.getElementById('lbtn').classList.remove('proc');
     th.remove();startAlertMode();return;
   }
-  // Question navigation — réponse locale sans appel API
+  // Nav rapide sans appel API
   if(intent.type==='nav'){
-    var navAnswer=handleNavQuestion(transcript);
-    if(navAnswer){
+    var ans=getNavAnswer(transcript.toLowerCase());
+    if(ans){
       th.remove();S.processing=false;document.getElementById('lbtn').classList.remove('proc');
       document.getElementById('lstatus').textContent='Appuyer pour répondre';
-      addMsg('nav',navAnswer);
-      speak(navAnswer,function(){
-        S.nrt=setTimeout(function(){schedule();},15000);
+      addMsg('nav',ans);
+      speak(ans,function(){
+        // Reste en écoute courte puis reprend le timer
+        S.nrt=setTimeout(function(){schedule();},18000);
         setTimeout(startListen,400);
       });return;
     }
   }
 
-  // Réponse IA normale
+  // Check-in positif → quiz léger
+  if(intent.type==='ok'){
+    S.hist.push({role:'user',content:transcript});
+    S.mode='chat';showBanner('💬 CONVERSATION','chat-mode');
+    callGroq('[Elle va bien au check-in, répond "'+transcript+'"] Réagis naturellement et enchaîne avec une question légère ou un fait marrant — sans annoncer que c\'est un quiz. Garde ça fluide comme une vraie conversation.',
+      function(r){
+        th.remove();S.processing=false;document.getElementById('lbtn').classList.remove('proc');
+        S.hist.push({role:'assistant',content:r});
+        addMsg('sp',r);
+        speak(r,function(){startNRT(25000);setTimeout(startListen,400);});
+      });return;
+  }
+  // Check-in négatif → discussion continue
+  if(intent.type==='tired'&&S.mode==='checkin'){
+    th.remove();S.processing=false;document.getElementById('lbtn').classList.remove('proc');
+    th.remove();startAlertMode();return;
+  }
+
+  // Réponse libre — IA prend le relais
   S.hist.push({role:'user',content:transcript});
   if(S.hist.length>14)S.hist=S.hist.slice(-12);
 
   var ctx='';
-  if(S.mode==='alert')ctx='[ALERTE SOMNOLENCE — continue la discussion, pose une question directe, garde le rythme] ';
-  else if(S.mode==='checkin')ctx='[CHECK-IN — réagis à ce qu\'elle dit, rebondis naturellement, si elle va bien propose quelque chose de fun] ';
+  if(S.mode==='alert')ctx='[ALERTE SOMNOLENCE — reste engageant, pose une question directe après ta réponse, garde le rythme] ';
+  else if(S.mode==='chat')ctx='[CONVERSATION EN COURS — rebondis naturellement, continue la discussion, change de sujet si elle le demande] ';
+  else ctx='[Réponds naturellement à ce qu\'elle dit] ';
 
   callGroq(ctx+S.userName+' dit: "'+transcript+'".',function(r){
     th.remove();S.processing=false;
@@ -898,12 +893,14 @@ function handleSpeech(transcript){
     document.getElementById('lstatus').textContent='Appuyer pour répondre';
     S.hist.push({role:'assistant',content:r});
     addMsg('sp',r);
+
     if(S.mode==='alert'){
       speak(r,function(){startNRT(25000);setTimeout(startListen,400);});
     } else {
-      S.mode='free';showBanner('💬 CONVERSATION','chat-mode');
+      S.mode='chat';showBanner('💬 CONVERSATION','chat-mode');
       speak(r,function(){
-        S.nrt=setTimeout(function(){schedule();},20000);
+        // Reste disponible 22s puis reprend le timer
+        S.nrt=setTimeout(function(){hideBanner();schedule();},22000);
         setTimeout(startListen,400);
       });
     }
@@ -914,11 +911,13 @@ function startAlertMode(){
   S.mode='alert';clearAll();
   showBanner('⚠️  ALERTE — DISCUSSION CONTINUE','alert-mode');
   setStatus('a','ALERTE');
-  document.getElementById('tnum').textContent='∞';document.getElementById('tlbl').textContent='Alerte';
-  var done=S.topics.slice(-12).join(', ');
-  callGroq('[URGENCE : '+S.userName+' somnole.] Lance immédiatement une discussion. Question directe, personnelle, stimulante. Évite: '+(done||'aucun')+'. 1-2 phrases.',
+  document.getElementById('tnum').textContent='∞';
+  document.getElementById('tlbl').textContent='Alerte';
+  var done=S.topics.slice(-10).join(', ');
+  callGroq('[URGENCE : '+S.userName+' somnole au volant] Lance immédiatement une discussion stimulante. Question directe et personnelle. Pas de préambule. Évite ces thèmes déjà utilisés: '+(done||'aucun')+'. 1-2 phrases max.',
     function(t){
-      S.topics.push(t.split(' ').filter(function(w){return w.length>4;})[0]||'sujet');
+      var kw=t.split(' ').filter(function(w){return w.length>4;})[0]||'topic';
+      S.topics.push(kw);
       addMsg('sp',t);speak(t,function(){startNRT(25000);setTimeout(startListen,400);});
     });
 }
